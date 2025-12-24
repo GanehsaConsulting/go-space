@@ -1,5 +1,6 @@
 import { Geist, Geist_Mono, DM_Sans, Nunito_Sans } from "next/font/google";
 import "./globals.css";
+import { Footer } from "@/components/common/Footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -28,6 +29,7 @@ export default function RootLayout({ children }) {
         className={`${geistSans.variable} ${geistMono.variable} ${nunito.className} antialiased`}
       >
         {children}
+        <Footer/>
       </body>
     </html>
   );

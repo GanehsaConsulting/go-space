@@ -1,3 +1,5 @@
+import { ClientReview } from "@/components/ClientReview";
+import { FAQ } from "@/components/FAQ";
 import { HomeBanner } from "@/components/HomeBanner";
 import { PriceList } from "@/components/PriceList";
 import { Spaces } from "@/components/Spaces";
@@ -15,6 +17,8 @@ export default async function Home() {
       <WhyUs/>
       <Spaces/>
       <PriceList data={packages} />
+      <ClientReview/>
+      <FAQ/>
     </main>
   );
 }

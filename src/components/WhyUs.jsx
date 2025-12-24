@@ -1,93 +1,134 @@
-import React from "react";
-// import { HeaderSection } from "./common/HeaderSection";
+"use client"
+
+import { useRef } from "react";
 import { SlLocationPin } from "react-icons/sl";
-import { Button } from "./ui/button";
 import { MdKeyboardArrowRight, MdKeyboardArrowLeft } from "react-icons/md";
 
 export const WhyUs = () => {
+  const scrollRef = useRef(null);
+
   const data = [
     {
       title: "Strategic Location",
       description:
-        "Our virtual offices are situated in prime locations in Jakarta Selatan, providing your business with a prestigious address that enhances credibility and accessibility.",
+        "Our virtual offices are situated in prime locations in Jakarta Selatan, providing your business with a prestigious address.",
       icon: <SlLocationPin />,
     },
     {
       title: "Affordable Pricing",
       description:
-        "We offer competitive pricing plans that cater to businesses of all sizes, ensuring you get the best value for your investment without compromising on quality or services.",
+        "We offer competitive pricing plans that cater to businesses of all sizes.",
       icon: <SlLocationPin />,
     },
     {
       title: "Comprehensive Services",
       description:
-        "From mail handling to call forwarding, our virtual office solutions come with a range of services designed to support your business operations seamlessly.",
+        "From mail handling to call forwarding, our services support your business.",
       icon: <SlLocationPin />,
     },
     {
       title: "Flexible Solutions",
       description:
-        "Our virtual office packages are customizable to meet your specific business needs, allowing you to scale services as your company grows.",
+        "Customizable virtual office packages that scale with your growth.",
       icon: <SlLocationPin />,
     },
     {
       title: "Professional Support",
       description:
-        "Our dedicated support team is always ready to assist you with any inquiries or issues, ensuring a smooth and hassle-free experience.",
+        "Dedicated support team ensuring smooth and hassle-free experience.",
+      icon: <SlLocationPin />,
+    },
+    {
+      title: "Professional Support",
+      description:
+        "Dedicated support team ensuring smooth and hassle-free experience.",
+      icon: <SlLocationPin />,
+    },
+    {
+      title: "Professional Support",
+      description:
+        "Dedicated support team ensuring smooth and hassle-free experience.",
+      icon: <SlLocationPin />,
+    },
+    {
+      title: "Professional Support",
+      description:
+        "Dedicated support team ensuring smooth and hassle-free experience.",
+      icon: <SlLocationPin />,
+    },
+    {
+      title: "Professional Support",
+      description:
+        "Dedicated support team ensuring smooth and hassle-free experience.",
       icon: <SlLocationPin />,
     },
   ];
 
+  const scrollLeft = () => {
+    scrollRef.current.scrollBy({
+      left: -300,
+      behavior: "smooth",
+    });
+  };
+
+  const scrollRight = () => {
+    scrollRef.current.scrollBy({
+      left: 300,
+      behavior: "smooth",
+    });
+  };
+
   return (
-    <section className=" bg-neutral-200/70 py-12">
-      <div className="px-24 flex flex-col md:flex-row justify-between items-start md:items-center mb-12 gap-6">
+    <section className="bg-neutral-200/70 py-12">
+      {/* HEADER */}
+      <div className="px-6 md:px-24 flex flex-col md:flex-row justify-between items-start md:items-center mb-12 gap-6">
         <div>
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4">
             Why Choose Us?
           </h2>
-          <p className="text-gray-600 max-w-md text-start">
-            Discover why Go Space stands out as the premier choice for virtual
-            office solutions in Jakarta Selatan.
+          <p className="text-gray-600 max-w-md">
+            Discover why Go Space stands out as the premier virtual office
+            provider.
           </p>
         </div>
-        <div className="flex items-center gap-3">
+
+        {/* ARROW BUTTON */}
+        <div className="hidden md:flex items-center gap-3">
           <button
-            className={
-              "bg-white text-neutral-500 hover:bg-neutral-900 hover:text-white rounded-full p-3"
-            }
+            onClick={scrollLeft}
+            className="bg-white text-neutral-500 hover:bg-neutral-900 hover:text-white rounded-full p-3 transition"
           >
             <MdKeyboardArrowLeft className="text-3xl" />
           </button>
 
           <button
-            className={
-              "bg-white text-neutral-500 hover:bg-neutral-900 hover:text-white rounded-full p-3"
-            }
+            onClick={scrollRight}
+            className="bg-white text-neutral-500 hover:bg-neutral-900 hover:text-white rounded-full p-3 transition"
           >
             <MdKeyboardArrowRight className="text-3xl" />
           </button>
         </div>
       </div>
 
-      <div className="relative w-full" >
-        <div className="flex gap-4 overflow-x-auto scrollbar-hide hide-scrollbar snap-x snap-mandatory scroll-smooth">
-          {data.map((item, index) => (
-            <div
-              key={index}
-              className="bg-white hover:bg-neutral-800 flex flex-col justify-between p-4 rounded-2xl w-70 h-80 cursor-pointer group  "
-            >
-              <div>
-                <div className="bg-neutral-900 text-white group-hover:bg-white group-hover:text-neutral-900 w-fit p-3 rounded-full text-3xl transition duration-300 ">
-                  {item.icon}
-                </div>
-              </div>
-              <div className="group-hover:text-white">
-                <p className="mb-3 font-bold text-xl  ">{item.title}</p>
-                <p className="text-sm">{item.description}</p>
-              </div>
+      <div
+        ref={scrollRef}
+        className="flex gap-4 px-24 overflow-x-auto scroll-smooth  scrollbar-hide hide-scrollbar    "
+      >
+        {data.map((item, index) => (
+          <div
+            key={index}
+            className="snap-start min-w-60 h-80 bg-white hover:bg-neutral-800 p-5 rounded-2xl flex flex-col justify-between group transition duration-800 cursor-pointer drop-shadow-destructive"
+          >
+            <div className="bg-neutral-900 text-white group-hover:bg-white group-hover:text-neutral-900 w-fit p-3 rounded-full text-3xl transition">
+              {item.icon}
             </div>
-          ))}
-        </div>
+
+            <div className="group-hover:text-white">
+              <h3 className="font-bold text-xl mb-3">{item.title}</h3>
+              <p className="text-sm">{item.description}</p>
+            </div>
+          </div>
+        ))}
       </div>
     </section>
   );
