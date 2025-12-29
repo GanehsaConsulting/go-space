@@ -55,7 +55,7 @@ export const HomeBanner = () => {
         >
           <div className="text-white font-semibold hidden sm:flex justify-center gap-6 md:gap-17 text-sm md:text-xl">
             <a href="">Home</a>
-            <a href="">Rooms</a>
+            <a href="">Spaces</a>
             <a href="">Services</a>
             <a href="">Contact</a>
           </div>

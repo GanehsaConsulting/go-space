@@ -10,42 +10,42 @@ import { HeaderSection } from "./common/HeaderSection";
 const faqData1 = [
   {
     id: "item-1",
-    question: "How to manage your Account.",
+    question: "Apa itu Go Space?",
     answer:
-      "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting...",
+      "Go Space adalah layanan kantor virtual yang membantu bisnis tampil profesional dengan alamat strategis untuk legalitas, branding, dan kebutuhan operasional.",
   },
   {
     id: "item-2",
-    question: "How to get a refund if applicable.",
+    question: "Apakah tersedia ruang meeting?",
     answer:
-      "Our refund policy allows you to request a full refund within 30 days of purchase. Simply contact our support team with your order details and reason for the refund request.",
+      "Tersedia! Kamu bisa booking ruang meeting kapan saja sesuai kebutuhan, lengkap dengan fasilitas pendukung.",
   },
   {
     id: "item-3",
-    question: "How to manage your Transit app.",
+    question: "Mau sewa VO, namun bisnis belum memiliki legalitas. Apakah bisa sekaligus urus legalitas?",
     answer:
-      "You can manage your Transit app settings by navigating to the settings menu in the app. From there, you can customize notifications, payment methods, and travel preferences.",
+      "Go Space by Ganesha Consulting menyediakan layanan pendirian legalitas bisnis seperti CV, PT, dan lainnya bersamaan dengan penyewaan Virtual Office.",
   },
 ];
 
 const faqData2 = [
   {
     id: "item-1",
-    question: "How to manage your Account.",
+    question: "Bagaimana cara booking?",
     answer:
-      "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting...",
+      "Booking dapat dilakukan melalui website kami dengan memilih paket yang sesuai, mengisi formulir pendaftaran, dan melakukan pembayaran secara online.",
   },
   {
     id: "item-2",
-    question: "How to get a refund if applicable.",
+    question: "Apa bisa sewa lebih dari 1 tahun?",
     answer:
-      "Our refund policy allows you to request a full refund within 30 days of purchase. Simply contact our support team with your order details and reason for the refund request.",
+      "Tentu saja! Kami menawarkan paket sewa tahunan, termasuk opsi sewa lebih dari 1 tahun dengan harga khusus.",
   },
   {
     id: "item-3",
-    question: "How to manage your Transit app.",
+    question: "Saya punya sisa kuota jam meeting, tapi masa sewa berakhir, apakah tetap bisa digunakan?",
     answer:
-      "You can manage your Transit app settings by navigating to the settings menu in the app. From there, you can customize notifications, payment methods, and travel preferences.",
+      "Jika masa sewa berakhir, sisa kuota jam meeting tidak dapat digunakan lagi. Pastikan untuk memperbarui sewa Anda untuk terus menikmati layanan kami.",
   },
 ];
 

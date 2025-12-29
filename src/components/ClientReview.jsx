@@ -8,22 +8,26 @@ import { HiVolumeUp, HiVolumeOff } from "react-icons/hi";
 import { FaPlay, FaPause } from "react-icons/fa";
 import { HeaderSection } from "./common/HeaderSection";
 import { Button } from "./ui/button";
+import Link from "next/link";
 
 const testimonials = [
   {
     rating: 5,
     text: "Pelayanan nya ramah, harga nyaterjangkau, kuota jam ruang meetingnya banyak, sgt recommended👍",
     name: "muhammad adji novantri",
+    url: "https://maps.app.goo.gl/QmvBb6xQbYj4TpsL7",
   },
   {
     rating: 5,
     text: "mantap meeting room nya ada yg smooking room, resepsionisnya juga ramah",
     name: "Melia wati",
+    url: "https://maps.app.goo.gl/HQYuzSY6EPXbGqs49",
   },
   {
     rating: 5,
     text: "salah satu virtual office dengan harga paling affordable apalagi dengan lokasi nya yang strategis di mampang, jaksel. sangat recommended",
     name: "M Faisal Ilham",
+    url: "https://maps.app.goo.gl/SptHVgdVmrQadvnC8",
   },
 ];
 
@@ -106,7 +110,7 @@ export function ClientReview() {
           {testimonials.map((testimonial, index) => (
             <div
               key={index}
-              className="relative overflow-hidden bg-neutral-200 group hover:bg-blue-100 transition duration-300 cursor-pointer rounded-t-3xl rounded-bl-2xl"
+              className="relative overflow-hidden bg-neutral-200 group hover:bg-blue-100 transition duration-300 rounded-t-3xl rounded-bl-2xl"
             >
               {/* atas */}
               <div className="p-5">
@@ -142,12 +146,14 @@ export function ClientReview() {
               </div>
 
               <div className="absolute right-0 bottom-0">
-                <div className="bg-white rounded-out-rt-2xl" ></div>
-                <div className="bg-white rounded-out-bl-2xl" ></div>
+                <div className="bg-white rounded-out-rt-2xl"></div>
+                <div className="bg-white rounded-out-bl-2xl"></div>
                 <div className=" ps-2 pt-2 rounded-tl-3xl bg-white">
-                  <div className="bg-neutral-700 text-white group-hover:bg-neutral-900 group-hover:text-white p-2 rounded-full">
-                    <GoArrowUpRight className="text-lg" />
-                  </div>
+                  <Link href={testimonial?.url} target="_blank">
+                    <div className="bg-neutral-700 text-white group-hover:bg-neutral-900 group-hover:text-white p-2 rounded-full">
+                      <GoArrowUpRight className="text-lg" />
+                    </div>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -171,13 +177,19 @@ export function ClientReview() {
             <div>Based on 17 Reviews</div>
           </div>
         </div>
-        \
-        <Button className={"rounded-full py-6 px-2 ps-4"}>
-          <div>View all reviews</div>
-          <div className="bg-white bg-neutral-800 text-neutral-900 p-2 rounded-full">
-            <GoArrowUpRight className="text-lg" />
-          </div>
-        </Button>
+        <Link
+          href={
+            "https://www.google.com/maps/place/GoSpace+Mampang/@-6.2556833,106.8279946,17z/data=!4m18!1m9!3m8!1s0x20f6bfe9853dcfa3:0x2ccb583ad9c6ca1b!2sGoSpace+Mampang!8m2!3d-6.2556833!4d106.8279946!9m1!1b1!16s%2Fg%2F11yhqv_71y!3m7!1s0x20f6bfe9853dcfa3:0x2ccb583ad9c6ca1b!8m2!3d-6.2556833!4d106.8279946!9m1!1b1!16s%2Fg%2F11yhqv_71y?entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoKLDEwMDc5MjA2OUgBUAM%3D"
+          }
+          target="_blank"
+        >
+          <Button className={"rounded-full py-6 px-2 ps-4"}>
+            <div>View all reviews</div>
+            <div className="bg-white bg-neutral-800 text-neutral-900 p-2 rounded-full">
+              <GoArrowUpRight className="text-lg" />
+            </div>
+          </Button>
+        </Link>
       </div>
     </section>
   );

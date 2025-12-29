@@ -28,7 +28,7 @@ export const PriceList = ({ data }) => {
             "Go Space adalah Virtual Office dengan harga affordable dengan lokasi strategis dan prestisius di jakarta selatan"
           }
         />
-        <div className={`grid md:grid-cols-2 gap-6`}>
+        <div className={`grid md:grid-cols-2 gap-6 items-start`}>
           {data?.map((plan, index) => {
             const originalPrice = calculateOriginalPrice(
               plan.price,

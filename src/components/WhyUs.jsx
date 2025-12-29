@@ -3,67 +3,12 @@
 import { useRef } from "react";
 import { SlLocationPin } from "react-icons/sl";
 import { MdKeyboardArrowRight, MdKeyboardArrowLeft } from "react-icons/md";
+import { WhyUsData } from "../../public/data/WhyUsData";
 
 export const WhyUs = () => {
   const scrollRef = useRef(null);
-
-  const data = [
-    {
-      title: "Strategic Location",
-      description:
-        "Our virtual offices are situated in prime locations in Jakarta Selatan, providing your business with a prestigious address.",
-      icon: <SlLocationPin />,
-    },
-    {
-      title: "Affordable Pricing",
-      description:
-        "We offer competitive pricing plans that cater to businesses of all sizes.",
-      icon: <SlLocationPin />,
-    },
-    {
-      title: "Comprehensive Services",
-      description:
-        "From mail handling to call forwarding, our services support your business.",
-      icon: <SlLocationPin />,
-    },
-    {
-      title: "Flexible Solutions",
-      description:
-        "Customizable virtual office packages that scale with your growth.",
-      icon: <SlLocationPin />,
-    },
-    {
-      title: "Professional Support",
-      description:
-        "Dedicated support team ensuring smooth and hassle-free experience.",
-      icon: <SlLocationPin />,
-    },
-    {
-      title: "Professional Support",
-      description:
-        "Dedicated support team ensuring smooth and hassle-free experience.",
-      icon: <SlLocationPin />,
-    },
-    {
-      title: "Professional Support",
-      description:
-        "Dedicated support team ensuring smooth and hassle-free experience.",
-      icon: <SlLocationPin />,
-    },
-    {
-      title: "Professional Support",
-      description:
-        "Dedicated support team ensuring smooth and hassle-free experience.",
-      icon: <SlLocationPin />,
-    },
-    {
-      title: "Professional Support",
-      description:
-        "Dedicated support team ensuring smooth and hassle-free experience.",
-      icon: <SlLocationPin />,
-    },
-  ];
-
+  const data = WhyUsData;
+ 
   const scrollLeft = () => {
     scrollRef.current.scrollBy({
       left: -300,
