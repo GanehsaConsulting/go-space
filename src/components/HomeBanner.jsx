@@ -3,8 +3,8 @@
 import Image from "next/image";
 import { Button } from "./ui/button";
 import { GoArrowUpRight } from "react-icons/go";
-import { motion } from "framer-motion";
 import { IoMdMoon } from "react-icons/io";
+import { motion } from "framer-motion";
 
 export const HomeBanner = () => {
   return (
@@ -57,7 +57,7 @@ export const HomeBanner = () => {
             <a href="">Home</a>
             <a href="">Spaces</a>
             <a href="">Services</a>
-            <a href="">Contact</a>
+            <a href="/contact">Contact</a>
           </div>
         </motion.div>
 

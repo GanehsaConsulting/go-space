@@ -1,4 +1,5 @@
 import { ClientReview } from "@/components/ClientReview";
+import { Navbar } from "@/components/common/Navbar";
 import { FAQ } from "@/components/FAQ";
 import { HomeBanner } from "@/components/HomeBanner";
 import { PriceList } from "@/components/PriceList";
@@ -12,13 +13,14 @@ export default async function Home() {
   const packages = await getPackages()
 
   return (
-    <main>
+    <>
+      <Navbar/>
       <HomeBanner/>
       <WhyUs/>
       <Spaces/>
       <PriceList data={packages} />
       <ClientReview/>
       <FAQ/>
-    </main>
+    </>
   );
 }
