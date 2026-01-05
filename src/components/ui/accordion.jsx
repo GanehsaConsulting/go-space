@@ -2,20 +2,20 @@
 
 import * as React from "react";
 import * as AccordionPrimitive from "@radix-ui/react-accordion";
-import { ChevronDownIcon } from "lucide-react";
 import { FaPlus, FaMinus } from "react-icons/fa6";
-
 import { cn } from "@/lib/utils";
 
-function Accordion({ ...props }) {
-  return <AccordionPrimitive.Root data-slot="accordion" {...props} />;
+function Accordion(props) {
+  return <AccordionPrimitive.Root {...props} />;
 }
 
 function AccordionItem({ className, ...props }) {
   return (
     <AccordionPrimitive.Item
-      data-slot="accordion-item"
-      className={cn("border-b last:border-b-0", className)}
+      className={cn(
+        "overflow-hidden transition-shadow",
+        className
+      )}
       {...props}
     />
   );
@@ -23,19 +23,33 @@ function AccordionItem({ className, ...props }) {
 
 function AccordionTrigger({ className, children, ...props }) {
   return (
-    <AccordionPrimitive.Header className="flex">
+    <AccordionPrimitive.Header>
       <AccordionPrimitive.Trigger
-        data-slot="accordion-trigger"
         className={cn(
-          "focus-visible:border-ring focus-visible:ring-ring/50 flex flex-1 items-start justify-between gap-4 rounded-md py-4 text-left text-sm font-medium transition-all outline-none hover:underline focus-visible:ring-[3px] disabled:pointer-events-none disabled:opacity-50 [&[data-state=open]>svg]:hidden",
+          `
+          group w-full flex items-center justify-between gap-4
+          px-5 py-5 text-left font-medium
+          text-base
+          rounded-3xl
+          transition-all
+          hover:bg-purple-100 bg-white
+          `,
           className
         )}
         {...props}
       >
-        {children}
-        <div className="bg-neutral-900 p-2 rounded-full text-white flex justify-center  items-center" >
-          <FaPlus className=" pointer-events-none size-3 shrink-0 transition-transform duration-200" />
-        </div>
+        <span className="max-w-[15rem] sm:max-w-sm" >{children}</span>
+
+        {/* ICON */}
+        <span
+          className="
+            flex h-7 w-7 items-center justify-center
+            rounded-full bg-neutral-900 text-white
+          "
+        >
+          <FaPlus className="group-data-[state=open]:hidden size-3" />
+          <FaMinus className="hidden group-data-[state=open]:block size-3" />
+        </span>
       </AccordionPrimitive.Trigger>
     </AccordionPrimitive.Header>
   );
@@ -44,13 +58,28 @@ function AccordionTrigger({ className, children, ...props }) {
 function AccordionContent({ className, children, ...props }) {
   return (
     <AccordionPrimitive.Content
-      data-slot="accordion-content"
-      className="data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down overflow-hidden text-sm flex gap-10"
+      className="
+        data-[state=open]:animate-accordion-down
+        data-[state=closed]:animate-accordion-up
+        overflow-hidden bg-white rounded-3xl mt-3
+      "
       {...props}
     >
-      <div className={cn("pt-0 pb-4", className)}>{children}</div>
+      <div
+        className={cn(
+          "p-5 text-sm text-gray-600",
+          className
+        )}
+      >
+        {children}
+      </div>
     </AccordionPrimitive.Content>
   );
 }
 
-export { Accordion, AccordionItem, AccordionTrigger, AccordionContent };
+export {
+  Accordion,
+  AccordionItem,
+  AccordionTrigger,
+  AccordionContent,
+};

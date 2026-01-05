@@ -8,15 +8,14 @@ import { motion } from "framer-motion";
 
 export const HomeBanner = () => {
   return (
-    <section className="p-4 font-nunito mb-12" >
+    <section className="p-4 font-nunito mb-12">
       <div
-        className="relative overflow-hidden w-full rounded-[40px]"
-        style={{ height: "calc(100vh - 2rem)" }}
+        className="relative overflow-hidden w-full rounded-[40px]  h-[calc(100vh-6.5rem)]
+    sm:h-[calc(100vh-2rem)]"
       >
-
         {/* Background Image */}
         <motion.div
-                  initial={{ scale: 1.1 }}
+          initial={{ scale: 1.1 }}
           animate={{ scale: 1 }}
           transition={{ duration: 2, ease: "easeOut" }}
           className="absolute inset-0"
@@ -75,7 +74,7 @@ export const HomeBanner = () => {
             </Button>{" "}
           </div>{" "}
         </div>
-        
+
         {/* Banner Text */}
         <div className="absolute left-0 bottom-0 p-6 md:p-8 w-full">
           <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-6">

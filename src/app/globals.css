@@ -9,7 +9,7 @@ button {
 }
 
 .margin {
-  @apply py-16 px-24;
+  @apply py-16 px-8 sm:px-17 md:px-24;
 }
 
 .hide-scrollbar {

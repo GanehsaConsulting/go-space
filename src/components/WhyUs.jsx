@@ -26,8 +26,8 @@ export const WhyUs = () => {
   return (
     <section className="bg-neutral-200/70 py-12">
       {/* HEADER */}
-      <div className="px-6 md:px-24 flex flex-col md:flex-row justify-between items-start md:items-center mb-12 gap-6">
-        <div>
+      <div className="px-0 md:px-24 flex flex-col md:flex-row justify-between items-start md:items-center mb-12 gap-6">
+        <div className="px-8 sm:px-0" >
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
             Why Choose Us?
           </h2>
@@ -57,7 +57,7 @@ export const WhyUs = () => {
 
       <div
         ref={scrollRef}
-        className="flex gap-4 px-24 overflow-x-auto scroll-smooth  scrollbar-hide hide-scrollbar    "
+        className="flex gap-4 px-8 sm:px-24 overflow-x-auto scroll-smooth  scrollbar-hide hide-scrollbar    "
       >
         {data.map((item, index) => (
           <div

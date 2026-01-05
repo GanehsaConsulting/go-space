@@ -163,7 +163,7 @@ export function ClientReview() {
 
       {/* bottominfo */}
       <div className="flex items-center justify-between text-neutral-700 mt-6">
-        <div className="flex items-center gap-4 text-sm">
+        <div className="hidden sm:flex items-center gap-4 text-sm">
           <p>
             Mayoritas klien puas setelah <br /> menggunakkan Ruang Meeting Go
             Space

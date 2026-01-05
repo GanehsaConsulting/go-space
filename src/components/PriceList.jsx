@@ -47,7 +47,7 @@ export const PriceList = ({ data }) => {
                 {/* Header with Type and Diamond */}
                 {plan.highlight && (
                   <div className="absolute right-0 top-0 w-fit">
-                    <div className="bg-white group-hover:bg-white group-hover:text-neutral-900 text-neutral-900 px-4 py-2 rounded-tr-2xl rounded-bl-4xl text-lg font-semibold transition-colors rounded-out-tl-3xl">
+                    <div className="bg-white group-hover:bg-white group-hover:text-neutral-900 text-neutral-900 px-4 py-2 rounded-tr-2xl rounded-bl-3xl sm:rounded-bl-4xl text-sm sm:text-lg font-semibold transition-colors rounded-out-tl-2xl sm:rounded-out-tl-3xl">
                       <div className="bg-inherit rounded-out-rb-4xl">
                         {plan.type}
                       </div>

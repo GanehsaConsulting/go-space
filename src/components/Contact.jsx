@@ -118,7 +118,7 @@ export const Contact = () => {
         {/* ================= FORM ================= */}
         <form
           onSubmit={handleSubmit}
-          className="flex-1 h-fit bg-neutral-50 border border-black/20 rounded-3xl p-6 shadow-sm"
+          className="flex-1 h-fit w-full bg-neutral-50 border border-black/20 rounded-3xl p-6 shadow-sm"
         >
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <input
