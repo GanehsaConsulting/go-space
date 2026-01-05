@@ -20,7 +20,7 @@ export const PriceList = ({ data }) => {
   };
 
   return (
-    <section className="margin bg-gray-50">
+    <section id="pricing" className="margin bg-gray-50">
       <div className="max-w-7xl mx-auto">
         <HeaderSection
           title={"Price Plan"}

@@ -1,8 +1,8 @@
 "use client";
 
 import { GoArrowUpRight } from "react-icons/go";
-import { MdOutlineEmail } from "react-icons/md";
 import { Button } from "@/components/ui/button";
+import { MdOutlineEmail } from "react-icons/md";
 import { AiOutlineWhatsApp } from "react-icons/ai";
 import { FaCheck, FaInstagram } from "react-icons/fa6";
 import Link from "next/link";

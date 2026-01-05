@@ -4,6 +4,8 @@ import React, { useState, useEffect } from "react";
 import { GoArrowUpRight } from "react-icons/go";
 import { IoEyeSharp } from "react-icons/io5";
 import { HeaderSection } from "./common/HeaderSection";
+import Link from "next/link";
+import { Button } from "./ui/button";
 
 const spaces = [
   {
@@ -69,7 +71,10 @@ export const Spaces = () => {
   };
 
   return (
-    <section className=" px-0 sm:px-24 sm:py-12 bg-gray-50 relative">
+    <section
+      id="spaces"
+      className=" px-0 sm:px-24 sm:py-12 bg-gray-50 relative"
+    >
       <div className="max-w-7xl mx-auto">
         <HeaderSection
           title="Explore Spaces"
@@ -97,9 +102,7 @@ export const Spaces = () => {
               onMouseEnter={
                 !isMobile ? () => setHoveredIndex(index) : undefined
               }
-              onMouseLeave={
-                !isMobile ? () => setHoveredIndex(null) : undefined
-              }
+              onMouseLeave={!isMobile ? () => setHoveredIndex(null) : undefined}
               onClick={() => isMobile && setActiveSpace(space)}
             >
               {/* Background */}
@@ -169,7 +172,7 @@ export const Spaces = () => {
       {/* ===== MODAL GALLERY ===== */}
       {activeSpace && (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm"
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm ease-in-out duration-500 "
           onClick={() => setActiveSpace(null)}
         >
           <div
@@ -202,6 +205,20 @@ export const Spaces = () => {
                   />
                 </div>
               ))}
+            </div>
+            <div className="px-6 py-6" >
+              <Link
+                href={
+                  "https://api.whatsapp.com/send/?phone=628871510044&text=Halo%2C+saya+tertarik+dengan+layanan+Go+Space%21&type=phone_number&app_absent=0"
+                }
+                target="_blank"
+                className="bg-neutral-900 text-white text-sm backdrop-blur-md text-neutral-900 rounded-full py-2 ps-4 pe-2 space-x-2 transition-all group flex items-center justify-between w-full"
+              >
+                <span className="text-base tracking-[1px] font-medium" >Book Now</span>
+                <span className="bg-white text-neutral-900 rounded-full p-2 group-hover:scale-115  transition ">
+                  <GoArrowUpRight />
+                </span>
+              </Link>
             </div>
           </div>
         </div>

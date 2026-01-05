@@ -1,6 +1,10 @@
 // adjust responsiveness
 import Image from "next/image";
 import Link from "next/link";
+import { FaWhatsapp } from "react-icons/fa6";
+import { MdOutlineEmail } from "react-icons/md";
+import { AiOutlineWhatsApp } from "react-icons/ai";
+import { FaInstagram } from "react-icons/fa6";
 
 export const Footer = () => {
   return (
@@ -30,8 +34,8 @@ export const Footer = () => {
           </p>
 
           <p className="max-w-sm text-sm text-white/80">
-            Go Space by Ganesha Consulting. Alamat bisnis strategis, kredibilitas
-            naik, biaya operasional lebih hemat.
+            Go Space by Ganesha Consulting. Alamat bisnis strategis,
+            kredibilitas naik, biaya operasional lebih hemat.
           </p>
         </div>
 
@@ -39,17 +43,17 @@ export const Footer = () => {
         <div className="md:col-span-2">
           <p className="font-semibold mb-6">Page</p>
           <div className="flex flex-col gap-3 text-sm">
-            <Link href="/" className="hover:text-white/70 transition">
+            <Link href="/#" className="hover:text-white/70 transition">
               Home
             </Link>
-            <Link href="/" className="hover:text-white/70 transition">
+            <Link href="/#spaces" className="hover:text-white/70 transition">
               Spaces
             </Link>
-            <Link href="/" className="hover:text-white/70 transition">
-              Services
+            <Link href="/#pricing" className="hover:text-white/70 transition">
+              Pricing
             </Link>
-            <Link href="/" className="hover:text-white/70 transition">
-              Contact
+            <Link href="/#faq" className="hover:text-white/70 transition">
+              Faq
             </Link>
           </div>
         </div>
@@ -58,17 +62,32 @@ export const Footer = () => {
         <div className="md:col-span-2">
           <p className="font-semibold mb-6">Contact</p>
           <div className="flex flex-col gap-3 text-sm">
-            <Link href="/" className="hover:text-white/70 transition">
-              WhatsApp
+            <Link
+              href="https://api.whatsapp.com/send/?phone=628871510044&text=Halo%2C+saya+tertarik+dengan+layanan+Go+Space%21&type=phone_number&app_absent=0"
+              className="hover:text-white/70 transition flex items-center gap-2"
+            >
+              <span>
+                <FaWhatsapp />
+              </span>
+              <span>WhatsApp</span>
             </Link>
-            <Link href="/" className="hover:text-white/70 transition">
-              Email
+            <Link
+              href="mailto:ganeshamultikreatif@gmail.com"
+              className="hover:text-white/70 transition flex items-center gap-2"
+            >
+              <span>
+                <MdOutlineEmail />
+              </span>
+              <span>Email</span>
             </Link>
-            <Link href="/" className="hover:text-white/70 transition">
-              Instagram
-            </Link>
-            <Link href="/" className="hover:text-white/70 transition">
-              LinkedIn
+            <Link
+              href="https://www.instagram.com/gospace.official"
+              className="hover:text-white/70 transition flex items-center gap-2"
+            >
+              <span>
+                <FaInstagram />
+              </span>
+              <span>Instagram</span>
             </Link>
           </div>
         </div>

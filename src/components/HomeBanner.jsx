@@ -5,10 +5,11 @@ import { Button } from "./ui/button";
 import { GoArrowUpRight } from "react-icons/go";
 import { IoMdMoon } from "react-icons/io";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 export const HomeBanner = () => {
   return (
-    <section className="p-4 font-nunito mb-12">
+    <section id="#" className="p-4 font-nunito mb-12">
       <div
         className="relative overflow-hidden w-full rounded-[40px]  h-[calc(100vh-6.5rem)]
     sm:h-[calc(100vh-2rem)]"
@@ -53,10 +54,10 @@ export const HomeBanner = () => {
           className="absolute left-0 right-0 top-0 bg-linear-to-b from-black/70 via-black/50 to-transparent z-5 py-5"
         >
           <div className="text-white font-semibold hidden sm:flex justify-center gap-6 md:gap-17 text-sm md:text-xl">
-            <a href="">Home</a>
-            <a href="">Spaces</a>
-            <a href="">Services</a>
-            <a href="/contact">Contact</a>
+            <a href="/#">Home</a>
+            <a href="/#spaces">Spaces</a>
+            <a href="/#pricing">Pricing</a>
+            <a href="/#faq">Faq</a>
           </div>
         </motion.div>
 
@@ -64,12 +65,15 @@ export const HomeBanner = () => {
         <div className="w-62.5 h-17 z-10 bg-white hidden sm:absolute right-0 top-0 ps-3 pb-3 pt-2 rounded-bl-[40px] rounded-out-rb-[40px] sm:flex justify-end items-center">
           {" "}
           <div className="flex items-center bg-inherit rounded-out-tl-[40px] space-x-2 w-full">
-            {" "}
-            <Button className={"rounded-full py-6 text-[1rem]"}>
-              connect with us
-            </Button>{" "}
+            <Link
+              target="_blank"
+              href="https://api.whatsapp.com/send/?phone=628871510044&text=Halo%2C+saya+tertarik+dengan+layanan+Go+Space%21&type=phone_number&app_absent=0"
+            >
+              <Button className={"rounded-full py-6 text-[1rem]"}>
+                connect with us
+              </Button>
+            </Link>
             <Button className={"rounded-full p-6"} size="icon">
-              {" "}
               <IoMdMoon />{" "}
             </Button>{" "}
           </div>{" "}
@@ -97,12 +101,14 @@ export const HomeBanner = () => {
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 1 }}
             >
-              <Button className="bg-white/50 backdrop-blur-md text-neutral-900 rounded-full pe-1.5 py-5 space-x-2 hover:bg-white/70 transition-all group">
-                <span>Explore Spaces</span>
-                <span className="bg-black rounded-full p-2 text-white group-hover:scale-115  transition">
-                  <GoArrowUpRight />
-                </span>
-              </Button>
+              <Link href={"https://api.whatsapp.com/send/?phone=628871510044&text=Halo%2C+saya+tertarik+dengan+layanan+Go+Space%21&type=phone_number&app_absent=0"} target="_blank" >
+                <Button className="bg-white/50 backdrop-blur-md text-neutral-900 rounded-full pe-1.5 py-5 space-x-2 hover:bg-white/70 transition-all group">
+                  <span>Explore Spaces</span>
+                  <span className="bg-black rounded-full p-2 text-white group-hover:scale-115  transition">
+                    <GoArrowUpRight />
+                  </span>
+                </Button>
+              </Link>
             </motion.div>
           </div>
         </div>

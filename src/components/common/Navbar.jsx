@@ -2,13 +2,14 @@
 
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-
+import { BsCurrencyDollar, BsQuestionLg } from "react-icons/bs";
 import { HiHome, HiOfficeBuilding } from "react-icons/hi";
-import { MdSunny, MdMiscellaneousServices } from "react-icons/md";
+import { MdSunny } from "react-icons/md";
 import { GoArrowUpRight } from "react-icons/go";
 import { RiContactsFill } from "react-icons/ri";
 import { VscListFlat } from "react-icons/vsc";
 import { Button } from "../ui/button";
+import Link from "next/link";
 
 export const Navbar = () => {
   const [showDesktop, setShowDesktop] = useState(false);
@@ -55,9 +56,10 @@ export const Navbar = () => {
 
             <div className="py-1 ps-5 pe-1 rounded-full bg-white/70 backdrop-blur-sm border border-black/20 shadow-2xl flex items-center gap-5">
               <div className="flex items-center gap-9 text-[15px] font-medium text-neutral-800">
-                <a href="#">Home</a>
-                <a href="#spaces">Spaces</a>
-                <a href="#services">Services</a>
+                <a href="/#">Home</a>
+                <a href="/#spaces">Spaces</a>
+                <a href="/#pricing">Pricing</a>
+                <a href="/#faq">Faq</a>
               </div>
 
               <Button
@@ -68,10 +70,17 @@ export const Navbar = () => {
               </Button>
             </div>
 
-            <Button className="bg-white/70 text-neutral-900 backdrop-blur-md rounded-full pe-3 py-5 border-black/30 border shadow-2xl">
-              <span>Contact</span>
-              <GoArrowUpRight />
-            </Button>
+            <Link
+              href={
+                "https://api.whatsapp.com/send/?phone=628871510044&text=Halo%2C+saya+tertarik+dengan+layanan+Go+Space%21&type=phone_number&app_absent=0"
+              }
+              target="_blank"
+            >
+              <Button className="bg-white/70 text-neutral-900 backdrop-blur-md rounded-full pe-3 py-5 border-black/30 border shadow-2xl ">
+                <span>Contact</span>
+                <GoArrowUpRight />
+              </Button>
+            </Link>
           </div>
         </motion.nav>
       )}
@@ -92,16 +101,20 @@ export const Navbar = () => {
                            border border-black/20 shadow-xl
                            rounded-2xl px-3 py-3 space-y-2"
               >
-                <Button
-                  variant="ghost"
-                  className="w-full flex justify-between"
-                >
+                <Button variant="ghost" className="w-full flex justify-between">
                   Dark Mode <MdSunny />
                 </Button>
 
-                <Button className="w-full rounded-full flex justify-between">
-                  Contact <GoArrowUpRight />
-                </Button>
+                <Link
+                  href={
+                    "https://api.whatsapp.com/send/?phone=628871510044&text=Halo%2C+saya+tertarik+dengan+layanan+Go+Space%21&type=phone_number&app_absent=0"
+                  }
+                  target="_blank"
+                >
+                  <Button className="w-full rounded-full flex justify-between">
+                    Contact <GoArrowUpRight />
+                  </Button>
+                </Link>
               </motion.div>
             )}
           </AnimatePresence>
@@ -120,11 +133,8 @@ export const Navbar = () => {
             <div className="flex items-center justify-between">
               <NavIcon href="#" icon={<HiHome />} />
               <NavIcon href="#spaces" icon={<HiOfficeBuilding />} />
-              <NavIcon href="#services" icon={<MdMiscellaneousServices />} />
-
-              <div className="w-11 h-11 flex items-center justify-center rounded-full bg-neutral-900 text-white">
-                <RiContactsFill />
-              </div>
+              <NavIcon href="#pricing" icon={<BsCurrencyDollar />} />
+              <NavIcon href="#faq" icon={<BsQuestionLg />} />
 
               <button
                 onClick={() => setOpenMenu(!openMenu)}
@@ -145,7 +155,7 @@ const NavIcon = ({ href, icon }) => (
   <a
     href={href}
     className="w-11 h-11 flex items-center justify-center rounded-full
-               text-neutral-700 text-xl hover:bg-neutral-200/60 transition"
+               text-neutral-700 text-xl hover:bg-neutral-800 hover:text-white transition"
   >
     {icon}
   </a>
