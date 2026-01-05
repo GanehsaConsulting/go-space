@@ -51,7 +51,7 @@ const faqData2 = [
 
 export const FAQ = () => {
   return (
-    <section className=" bg-neutral-200 margin">
+    <section className=" bg-neutral-200/60 margin">
       <HeaderSection
         title="Frequently Asked Questions"
         desc="Punya pertanyaan? Berikut pertanyaan yang sering ditanyakan klien seputar Go Space"

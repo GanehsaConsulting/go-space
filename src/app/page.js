@@ -1,5 +1,6 @@
 import { ClientReview } from "@/components/ClientReview";
 import { Navbar } from "@/components/common/Navbar";
+import { Contact } from "@/components/Contact";
 import { FAQ } from "@/components/FAQ";
 import { HomeBanner } from "@/components/HomeBanner";
 import { PriceList } from "@/components/PriceList";
@@ -21,6 +22,7 @@ export default async function Home() {
       <PriceList data={packages} />
       <ClientReview/>
       <FAQ/>
+      <Contact/>
     </>
   );
 }
