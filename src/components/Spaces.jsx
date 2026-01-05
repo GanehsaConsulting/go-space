@@ -71,10 +71,7 @@ export const Spaces = () => {
   };
 
   return (
-    <section
-      id="spaces"
-      className=" px-0 sm:px-24 sm:py-12 bg-gray-50 relative"
-    >
+    <section id="spaces" className=" px-0 sm:px-24 sm:py-12  relative">
       <div className="max-w-7xl mx-auto">
         <HeaderSection
           title="Explore Spaces"
@@ -176,17 +173,17 @@ export const Spaces = () => {
           onClick={() => setActiveSpace(null)}
         >
           <div
-            className="bg-white max-w-5xl w-full mx-4 rounded-3xl overflow-hidden"
+            className=" max-w-5xl w-full mx-4 rounded-3xl overflow-hidden"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Header */}
             <div className="flex items-center justify-between p-6 border-b">
-              <h3 className="text-xl md:text-2xl font-bold">
+              <h3 className="text-xl md:text-2xl font-bold text-white">
                 {activeSpace.title}
               </h3>
               <button
                 onClick={() => setActiveSpace(null)}
-                className="text-gray-500 hover:text-black text-xl"
+                className="text-gray-200 hover:text-red-400 text-xl"
               >
                 ✕
               </button>
@@ -197,7 +194,7 @@ export const Spaces = () => {
               {activeSpace.gallery.map((img, i) => (
                 <div
                   key={i}
-                  className="relative aspect-[4/3] rounded-2xl overflow-hidden group"
+                  className="relative aspect-[4/3] rounded-2xl overflow-hidden group hover:shadow-[0_0_25px_rgba(255,255,255,0.6)] duration-200"
                 >
                   <div
                     className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
@@ -206,16 +203,23 @@ export const Spaces = () => {
                 </div>
               ))}
             </div>
-            <div className="px-6 py-6" >
+            <div className="px-6 py-6">
               <Link
                 href={
                   "https://api.whatsapp.com/send/?phone=628871510044&text=Halo%2C+saya+tertarik+dengan+layanan+Go+Space%21&type=phone_number&app_absent=0"
                 }
                 target="_blank"
-                className="bg-neutral-900 text-white text-sm backdrop-blur-md text-neutral-900 rounded-full py-2 ps-4 pe-2 space-x-2 transition-all group flex items-center justify-between w-full"
+                className="
+  bg-white/70 backdrop-blur-md rounded-full
+  py-2 ps-4 pe-2 flex items-center justify-between w-full
+  transition-all duration-300
+  hover:shadow-[0_0_25px_rgba(255,255,255,0.6)] duration-200
+"
               >
-                <span className="text-base tracking-[1px] font-medium" >Book Now</span>
-                <span className="bg-white text-neutral-900 rounded-full p-2 group-hover:scale-115  transition ">
+                <span className="text-base tracking-[1px] font-semibold text-neutral-900">
+                  Book Now
+                </span>
+                <span className="bg-neutral-900 text-white rounded-full p-2 group-hover:scale-115  transition ">
                   <GoArrowUpRight />
                 </span>
               </Link>

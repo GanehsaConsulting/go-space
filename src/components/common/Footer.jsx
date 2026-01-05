@@ -8,7 +8,7 @@ import { FaInstagram } from "react-icons/fa6";
 
 export const Footer = () => {
   return (
-    <footer className="bg-neutral-200">
+    <footer className="bg-neutral-200 dark:bg-black">
       <section
         className="
           bg-neutral-800 text-white

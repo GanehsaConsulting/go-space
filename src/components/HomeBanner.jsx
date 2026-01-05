@@ -6,8 +6,13 @@ import { GoArrowUpRight } from "react-icons/go";
 import { IoMdMoon } from "react-icons/io";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import { useTheme } from "next-themes";
+import { HiMoon } from "react-icons/hi";
+import { MdSunny } from "react-icons/md";
 
 export const HomeBanner = () => {
+  const { theme, setTheme } = useTheme();
+
   return (
     <section id="#" className="p-4 font-nunito mb-12">
       <div
@@ -25,26 +30,32 @@ export const HomeBanner = () => {
             src="/assets/banner-image-main.jpg"
             alt="Home Banner"
             fill
-            className="object-cover brightness-60"
+            className="object-cover brightness-60 dark:brightness-100"
           />
         </motion.div>
 
         {/* logo */}
-        <div className="w-25 h-19 sm:w-62.5 sm:h-17 z-10 absolute left-0 top-0 bg-white pt-2 ps-2 sm:pr-4 sm:pb-4 sm:rounded-out-lb-[40px] sm:rounded-br-[40px] rounded-out-lb-[30px] rounded-br-[30px] ">
+        <div className="w-25 h-19 sm:w-62.5 sm:h-17 z-10 absolute left-0 top-0 bg-white dark:bg-black pt-2 ps-2 sm:pr-4 sm:pb-4 sm:rounded-out-lb-[40px] sm:rounded-br-[40px] rounded-out-lb-[30px] rounded-br-[30px] ">
           {" "}
           <div className="flex items-center gap-4 pe-3 bg-inherit sm:rounded-out-tr-[40px] rounded-out-tr-[30px]">
             {" "}
             <img
               src="/assets/go-logo.png"
               alt="go space logo"
-              className="h-12"
+              className="h-12 dark:brightness-1000 "
             />{" "}
-            <p className="sm:block hidden text-[11px] text-purple-800 font-semibold">
+            <p className="dark:text-white sm:block hidden text-[11px] text-purple-800 font-semibold">
               {" "}
               Virtual Office <br /> By Ganesha Consulting{" "}
             </p>{" "}
           </div>{" "}
         </div>
+
+        <div
+          className="absolute left-0 right-0 bottom-0 h-[60%]
+             hidden dark:block
+             bg-linear-to-t from-black/90 via-black/50 to-transparent"
+        />
 
         {/* Nav Link */}
         <motion.div
@@ -62,25 +73,33 @@ export const HomeBanner = () => {
         </motion.div>
 
         {/* CTA Button */}
-        <div className="w-62.5 h-17 z-10 bg-white hidden sm:absolute right-0 top-0 ps-3 pb-3 pt-2 rounded-bl-[40px] rounded-out-rb-[40px] sm:flex justify-end items-center">
+        <div className="z-200 w-62.5 h-17 bg-white dark:bg-black hidden sm:absolute right-0 top-0 ps-3 pb-3 pt-2 rounded-bl-[40px] rounded-out-rb-[40px] sm:flex justify-end items-center">
           {" "}
           <div className="flex items-center bg-inherit rounded-out-tl-[40px] space-x-2 w-full">
             <Link
               target="_blank"
               href="https://api.whatsapp.com/send/?phone=628871510044&text=Halo%2C+saya+tertarik+dengan+layanan+Go+Space%21&type=phone_number&app_absent=0"
             >
-              <Button className={"rounded-full py-6 text-[1rem]"}>
+              <Button
+                className={"rounded-full py-6 text-[1rem] bg-neutral-800 dark:bg-neutral-300"}
+              >
                 connect with us
               </Button>
             </Link>
-            <Button className={"rounded-full p-6"} size="icon">
-              <IoMdMoon />{" "}
-            </Button>{" "}
+            <Button
+              onClick={() =>
+                setTheme(!theme || theme === "light" ? "dark" : "light")
+              }
+              size="icon"
+              className="rounded-full p-6 bg-neutral-800 text-white dark:bg-neutral-300 dark:text-neutral-900 text-xl  "
+            >
+              {theme === "dark" ? <HiMoon /> : <MdSunny />}
+            </Button>
           </div>{" "}
         </div>
 
         {/* Banner Text */}
-        <div className="absolute left-0 bottom-0 p-6 md:p-8 w-full">
+        <div className="absolute left-0 bottom-0 p-6 md:p-8 w-full z-200">
           <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-6">
             <motion.div
               initial={{ y: 40, opacity: 0 }}
@@ -101,8 +120,13 @@ export const HomeBanner = () => {
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 1 }}
             >
-              <Link href={"https://api.whatsapp.com/send/?phone=628871510044&text=Halo%2C+saya+tertarik+dengan+layanan+Go+Space%21&type=phone_number&app_absent=0"} target="_blank" >
-                <Button className="bg-white/50 backdrop-blur-md text-neutral-900 rounded-full pe-1.5 py-5 space-x-2 hover:bg-white/70 transition-all group">
+              <Link
+                href={
+                  "https://api.whatsapp.com/send/?phone=628871510044&text=Halo%2C+saya+tertarik+dengan+layanan+Go+Space%21&type=phone_number&app_absent=0"
+                }
+                target="_blank"
+              >
+                <Button className="bg-white/70 dark:bg-white/80 backdrop-blur-md text-neutral-900 rounded-full pe-1.5 py-5 space-x-2 hover:bg-white/70 transition-all group">
                   <span>Explore Spaces</span>
                   <span className="bg-black rounded-full p-2 text-white group-hover:scale-115  transition">
                     <GoArrowUpRight />

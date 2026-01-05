@@ -1,6 +1,7 @@
 import { Geist, Geist_Mono, DM_Sans, Nunito_Sans } from "next/font/google";
 import "./globals.css";
 import { Footer } from "@/components/common/Footer";
+import { ThemeProvider } from "next-themes";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -8,7 +9,7 @@ const geistSans = Geist({
 });
 
 const nunito = DM_Sans({
-  variable: "--font-nunito",   
+  variable: "--font-nunito",
   subsets: ["latin"],
   display: "swap",
 });
@@ -28,8 +29,11 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${nunito.className} antialiased`}
       >
-        {children}
-        <Footer/>
+        <ThemeProvider attribute="class">
+          {children}
+
+          <Footer />
+        </ThemeProvider>
       </body>
     </html>
   );

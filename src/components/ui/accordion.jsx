@@ -32,7 +32,7 @@ function AccordionTrigger({ className, children, ...props }) {
           text-base
           rounded-3xl
           transition-all
-          hover:bg-purple-100 bg-white
+          hover:bg-purple-100 bg-white dark:bg-neutral-900
           `,
           className
         )}
@@ -61,13 +61,13 @@ function AccordionContent({ className, children, ...props }) {
       className="
         data-[state=open]:animate-accordion-down
         data-[state=closed]:animate-accordion-up
-        overflow-hidden bg-white rounded-3xl mt-3
+        overflow-hidden bg-white dark:bg-neutral-900 rounded-3xl mt-3
       "
       {...props}
     >
       <div
         className={cn(
-          "p-5 text-sm text-gray-600",
+          "p-5 text-sm text-gray-600 dark:text-gray-50",
           className
         )}
       >

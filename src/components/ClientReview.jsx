@@ -110,7 +110,7 @@ export function ClientReview() {
           {testimonials.map((testimonial, index) => (
             <div
               key={index}
-              className="relative overflow-hidden bg-neutral-200 group hover:bg-blue-100 transition duration-300 rounded-t-3xl rounded-bl-2xl"
+              className="relative overflow-hidden bg-neutral-200 dark:bg-neutral-800 group hover:bg-blue-100 dark:hover:bg-blue-900 transition duration-300 rounded-t-3xl rounded-bl-2xl"
             >
               {/* atas */}
               <div className="p-5">
@@ -138,7 +138,7 @@ export function ClientReview() {
                   </div>
                   <div>
                     <p className="font-semibold text-xs">{testimonial.name}</p>
-                    <p className="text-xs text-neutral-500">
+                    <p className="text-xs text-neutral-500 dark:text-gray-400">
                       Review On Google Maps
                     </p>
                   </div>
@@ -146,11 +146,11 @@ export function ClientReview() {
               </div>
 
               <div className="absolute right-0 bottom-0">
-                <div className="bg-white rounded-out-rt-2xl"></div>
-                <div className="bg-white rounded-out-bl-2xl"></div>
-                <div className=" ps-2 pt-2 rounded-tl-3xl bg-white">
+                <div className="bg-white dark:bg-black rounded-out-rt-2xl"></div>
+                <div className="bg-white dark:bg-black rounded-out-bl-2xl"></div>
+                <div className=" ps-2 pt-2 rounded-tl-3xl bg-white dark:bg-black">
                   <Link href={testimonial?.url} target="_blank">
-                    <div className="bg-neutral-700 text-white group-hover:bg-neutral-900 group-hover:text-white p-2 rounded-full">
+                    <div className="bg-neutral-800 text-white group-hover:bg-neutral-900 group-hover:text-white dark:group-hover:bg-blue-900 p-2 rounded-full">
                       <GoArrowUpRight className="text-lg" />
                     </div>
                   </Link>
@@ -162,7 +162,7 @@ export function ClientReview() {
       </div>
 
       {/* bottominfo */}
-      <div className="flex items-center justify-between text-neutral-700 mt-6">
+      <div className="flex items-center justify-between text-neutral-700 dark:text-gray-200 mt-6">
         <div className="hidden sm:flex items-center gap-4 text-sm">
           <p>
             Mayoritas klien puas setelah <br /> menggunakkan Ruang Meeting Go
@@ -185,7 +185,7 @@ export function ClientReview() {
         >
           <Button className={"rounded-full py-6 px-2 ps-4"}>
             <div>View all reviews</div>
-            <div className="bg-white bg-neutral-800 text-neutral-900 p-2 rounded-full">
+            <div className="bg-white dark:bg-neutral-900 dark:text-white text-neutral-900 p-2 rounded-full">
               <GoArrowUpRight className="text-lg" />
             </div>
           </Button>

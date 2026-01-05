@@ -7,22 +7,20 @@ import { PriceList } from "@/components/PriceList";
 import { Spaces } from "@/components/Spaces";
 import { WhyUs } from "@/components/WhyUs";
 import { getPackages } from "@/lib/getPackages";
-import Image from "next/image";
 
 export default async function Home() {
-
-  const packages = await getPackages()
+  const packages = await getPackages();
 
   return (
     <>
-      <Navbar/>
-      <HomeBanner/>
-      <WhyUs/>
-      <Spaces/>
+      <Navbar />
+      <HomeBanner />
+      <WhyUs />
+      <Spaces />
       <PriceList data={packages} />
-      <ClientReview/>
-      <FAQ/>
-      <Contact/>
+      <ClientReview />
+      <FAQ />
+      <Contact />
     </>
   );
 }
