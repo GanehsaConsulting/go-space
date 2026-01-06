@@ -1,0 +1,1 @@
+export const neutralGradient = "bg-gradient-to-br from-neutral-50 to-neutral-300 dark:from-neutral-500 dark:to-neutral-800 hover:from-neutral-500 hover:to-neutral-900 dark:hover:from-neutral-50 dark:hover:to-neutral-400 hover:text-white dark:hover:text-neutral-900";
