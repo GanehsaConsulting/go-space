@@ -1,10 +1,12 @@
 "use client";
 
+import { useState, useEffect } from "react";
+import { IoClose } from "react-icons/io5";
 import Image from "next/image";
 import { Button } from "./ui/button";
 import { GoArrowUpRight } from "react-icons/go";
 import { IoMdMoon } from "react-icons/io";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
 import { useTheme } from "next-themes";
 import { HiMoon } from "react-icons/hi";
@@ -12,11 +14,20 @@ import { MdSunny } from "react-icons/md";
 
 export const HomeBanner = () => {
   const { theme, setTheme } = useTheme();
+  const [openVideo, setOpenVideo] = useState(false);
+
+  useEffect(() => {
+    const handleEsc = (e) => {
+      if (e.key === "Escape") setOpenVideo(false);
+    };
+    window.addEventListener("keydown", handleEsc);
+    return () => window.removeEventListener("keydown", handleEsc);
+  }, []);
 
   return (
     <section id="#" className="p-4 font-nunito mb-12">
       <div
-        className="relative overflow-hidden w-full rounded-[40px]  h-[calc(100vh-6.5rem)]
+        className="relative overflow-hidden w-full rounded-[40px]  h-[calc(100vh-7rem)]
     sm:h-[calc(100vh-2rem)]"
       >
         {/* Background Image */}
@@ -51,12 +62,6 @@ export const HomeBanner = () => {
           </div>{" "}
         </div>
 
-        <div
-          className="absolute left-0 right-0 bottom-0 h-[60%]
-             hidden dark:block
-             bg-linear-to-t from-black/90 via-black/50 to-transparent"
-        />
-
         {/* Nav Link */}
         <motion.div
           initial={{ y: -30, opacity: 0 }}
@@ -81,7 +86,9 @@ export const HomeBanner = () => {
               href="https://api.whatsapp.com/send/?phone=628871510044&text=Halo%2C+saya+tertarik+dengan+layanan+Go+Space%21&type=phone_number&app_absent=0"
             >
               <Button
-                className={"rounded-full py-6 text-[1rem] bg-neutral-800 dark:bg-neutral-300"}
+                className={
+                  "rounded-full py-6 text-[1rem] bg-neutral-800 dark:bg-neutral-300"
+                }
               >
                 connect with us
               </Button>
@@ -98,6 +105,12 @@ export const HomeBanner = () => {
           </div>{" "}
         </div>
 
+        <div
+          className="absolute left-0 right-0 bottom-0 h-[70%]
+             hidden dark:block
+             bg-linear-to-t from-white/90 dark:from-black via-white/30 dark:via-black/30 to-transparent"
+        />
+
         {/* Banner Text */}
         <div className="absolute left-0 bottom-0 p-6 md:p-8 w-full z-200">
           <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-6">
@@ -106,10 +119,10 @@ export const HomeBanner = () => {
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 0.8 }}
             >
-              <h1 className="text-[2.5rem] md:text-[4rem] font-semibold text-white leading-tight">
+              <h1 className="text-[2.5rem] md:text-[4rem] font-semibold text-white  leading-tight ">
                 Work Better, Together.
               </h1>
-              <p className="text-white/80 max-w-xl text-sm font-semibold mt-2">
+              <p className="text-white/80  max-w-xl text-sm font-semibold mt-2">
                 Go Space membantu bisnis tampil profesional dengan alamat kantor
                 virtual strategis untuk legalitas, branding, dan operasional.
               </p>
@@ -120,23 +133,57 @@ export const HomeBanner = () => {
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 1 }}
             >
-              <Link
-                href={
-                  "https://api.whatsapp.com/send/?phone=628871510044&text=Halo%2C+saya+tertarik+dengan+layanan+Go+Space%21&type=phone_number&app_absent=0"
-                }
-                target="_blank"
+              <Button
+                onClick={() => setOpenVideo(true)}
+                className="bg-white/70 backdrop-blur-md text-neutral-900 rounded-full pe-1.5 py-5 space-x-2 hover:bg-white/70 transition-all group"
               >
-                <Button className="bg-white/70 dark:bg-white/80 backdrop-blur-md text-neutral-900 rounded-full pe-1.5 py-5 space-x-2 hover:bg-white/70 transition-all group">
-                  <span>Explore Spaces</span>
-                  <span className="bg-black rounded-full p-2 text-white group-hover:scale-115  transition">
-                    <GoArrowUpRight />
-                  </span>
-                </Button>
-              </Link>
+                <span>Explore Spaces</span>
+                <span className="bg-black rounded-full p-2 text-white group-hover:scale-115 transition">
+                  <GoArrowUpRight />
+                </span>
+              </Button>
             </motion.div>
           </div>
         </div>
       </div>
+      <AnimatePresence>
+        {openVideo && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[999] bg-black/80 backdrop-blur-md flex items-center justify-center p-4"
+            onClick={() => setOpenVideo(false)}
+          >
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              transition={{ duration: 0.3 }}
+              className="relative h-[90dvh]
+    aspect-[10/12]
+    max-w-full rounded-2xl overflow-hidden bg-black"
+              onClick={(e) => e.stopPropagation()}
+            >
+              {/* Close Button */}
+              <button
+                onClick={() => setOpenVideo(false)}
+                className="absolute top-4 right-4 z-10 bg-black/70 text-white p-2 rounded-full hover:bg-black"
+              >
+                <IoClose size={24} />
+              </button>
+
+              {/* Video */}
+              <video
+                src="/assets/videos/vo-tour.mp4"
+                autoPlay
+                controls
+                className="w-full h-full object-cover"
+              />
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 };

@@ -48,12 +48,16 @@ export const Navbar = () => {
           animate={{ y: 0, opacity: 1 }}
           exit={{ y: -80, opacity: 0 }}
           transition={{ duration: 0.4, ease: "easeOut" }}
-          className="hidden md:block fixed top-4 left-1/2 -translate-x-1/2 z-50
+          className="z-1000 hidden md:block fixed top-4 left-1/2 -translate-x-1/2 z-50
                      w-[95%] max-w-2xl rounded-full ps-1 pe-1 py-1"
         >
           <div className="flex items-center justify-center gap-2">
             <div className="flex items-center gap-2 bg-white/70 dark:bg-neutral-700/50 backdrop-blur-sm border border-black/20 dark:border-white/20  px-4 py-2 rounded-full shadow-2xl">
-              <img src="/assets/go-logo.png" alt="Go Space" className="h-7 dark:brightness-1000" />
+              <img
+                src="/assets/go-logo.png"
+                alt="Go Space"
+                className="h-7 dark:brightness-1000"
+              />
             </div>
 
             <div className="py-1 ps-5 pe-1 rounded-full bg-white/70 dark:bg-neutral-700/50 backdrop-blur-sm border border-black/20 dark:border-white/20 shadow-2xl flex items-center gap-5">
@@ -65,11 +69,13 @@ export const Navbar = () => {
               </div>
 
               <Button
-                onClick={() => setTheme(!theme || theme === "light" ? "dark" : "light")}
+                onClick={() =>
+                  setTheme(!theme || theme === "light" ? "dark" : "light")
+                }
                 size="icon"
                 className="rounded-full bg-neutral-200/70 dark:bg-neutral-600 dark:text-white text-neutral-900 hover:text-white text-xl"
               >
-                {theme === "dark" ? <HiMoon/> : <MdSunny />}
+                {theme === "dark" ? <HiMoon /> : <MdSunny />}
               </Button>
             </div>
 
@@ -99,13 +105,19 @@ export const Navbar = () => {
                 animate={{ opacity: 1, y: 0, scale: 1 }}
                 exit={{ opacity: 0, y: 10, scale: 0.95 }}
                 transition={{ duration: 0.25 }}
-                className="fixed bottom-24 right-3 z-100
+                className="fixed bottom-24 right-3
                            bg-white/90 backdrop-blur-lg
                            border border-black/20 dark:border-white/20 shadow-xl
-                           rounded-2xl px-3 py-3 space-y-2"
+                           rounded-2xl px-3 py-3 space-y-2 z-1000"
               >
-                <Button variant="ghost" className="w-full flex justify-between">
-                  Mode <MdSunny />
+                <Button
+                  onClick={() =>
+                    setTheme(!theme || theme === "light" ? "dark" : "light")
+                  }
+                  
+                  className="w-full flex justify-between bg-main dark:bg-neutral-900 dark:text-white z-100"
+                >
+                  Mode {theme === "dark" ? <HiMoon /> : <MdSunny />}
                 </Button>
 
                 <Link
@@ -114,7 +126,7 @@ export const Navbar = () => {
                   }
                   target="_blank"
                 >
-                  <Button className="w-full rounded-full flex justify-between">
+                  <Button variant="ghost" className="text-neutral-900 w-full rounded-full flex justify-between">
                     Contact <GoArrowUpRight />
                   </Button>
                 </Link>

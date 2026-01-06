@@ -27,6 +27,11 @@ button, a {
   display: none;
 }
 
+@theme {
+  --color-main: #7458A6;
+  --color-secondary: #FEC841;
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -146,4 +151,5 @@ button, a {
   body {
     @apply bg-background text-foreground;
   }
+  
 }
