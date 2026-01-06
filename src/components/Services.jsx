@@ -4,7 +4,7 @@ import Image from "next/image";
 import { FiArrowUpRight } from "react-icons/fi";
 import Link from "next/link";
 import { Button } from "./ui/button";
-import { neutralGradient } from "@/lib/reuseClass";
+import { bgNeutralGradient } from "@/lib/reuseClass";
 
 const ServicesData = [
   {
@@ -34,7 +34,7 @@ export const Services = () => {
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 md:gap-7">
         {ServicesData.map((service, index) => (
           <div
-            className={`relative aspect-square  rounded-2xl hover:-translate-y-5 duration-500 cursor-pointer group overflow-hidden mb-6  ${neutralGradient}`}
+            className={`relative aspect-square  rounded-2xl hover:-translate-y-5 cursor-pointer group overflow-hidden mb-6 transition-all duration-500  ${bgNeutralGradient}`}
             key={index}
           >
             <div className="bg-white dark:bg-black rounded-out-tl-2xl pb-2 ps-2 rounded-bl-3xl right-0 top-0 absolute z-100">

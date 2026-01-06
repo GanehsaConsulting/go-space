@@ -8,6 +8,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { HeaderSection } from "./common/HeaderSection";
+import { bgNeutralGradient, bgNeutralGradientReverse } from "@/lib/reuseClass";
 
 const faqData1 = [
   {
@@ -66,8 +67,8 @@ export const FAQ = () => {
         <Accordion type="single" collapsible className="space-y-4">
           {faqData1.map((faq) => (
             <AccordionItem key={faq.id} value={faq.id}>
-              <AccordionTrigger>{faq.question}</AccordionTrigger>
-              <AccordionContent>{faq.answer}</AccordionContent>
+              <AccordionTrigger className={`transition-colors duration-500 text-white dark:text-neutral-900 ${bgNeutralGradientReverse}`} >{faq.question}</AccordionTrigger>
+              <AccordionContent className={`transition-colors duration-500 text-white dark:text-neutral-900 ${bgNeutralGradientReverse}`} >{faq.answer}</AccordionContent>
             </AccordionItem>
           ))}
         </Accordion>
@@ -76,8 +77,8 @@ export const FAQ = () => {
         <Accordion type="single" collapsible className="space-y-4">
           {faqData2.map((faq) => (
             <AccordionItem key={faq.id} value={faq.id}>
-              <AccordionTrigger>{faq.question}</AccordionTrigger>
-              <AccordionContent>{faq.answer}</AccordionContent>
+              <AccordionTrigger className={`transition-colors duration-500 text-white dark:text-neutral-900 ${bgNeutralGradientReverse}`} > {faq.question}</AccordionTrigger>
+              <AccordionContent className={`transition-colors duration-500 text-white dark:text-neutral-900 ${bgNeutralGradientReverse}`} >{faq.answer}</AccordionContent>
             </AccordionItem>
           ))}
         </Accordion>
