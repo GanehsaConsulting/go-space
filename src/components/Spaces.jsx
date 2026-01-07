@@ -116,7 +116,7 @@ export const Spaces = () => {
               <div className="relative h-full flex flex-col justify-between p-5 md:p-6">
                 {/* Top */}
                 <div className="flex justify-between items-start">
-                  <div className="bg-white/20 backdrop-blur-sm text-white px-4 py-2 rounded-full text-xs md:text-sm font-medium">
+                  <div className="bg-main/20 backdrop-blur-sm text-white px-4 py-2 rounded-full text-xs md:text-sm font-medium">
                     {space.title.split(" ")[0]}
                   </div>
 
@@ -148,6 +148,7 @@ export const Spaces = () => {
                       e.stopPropagation();
                       setActiveSpace(space);
                     }}
+                    variant="basic"
                     className={"w-full dark:hover:bg-neutral-900 !important  "}
                   />
 

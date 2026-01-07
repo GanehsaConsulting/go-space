@@ -44,6 +44,16 @@ export const ArrowButton = ({
       dark:bg-neutral-900 dark:text-white
     `,
     },
+    basic: {
+      button: `
+      bg-linear-to-br from-white to-neutral-300
+      text-neutral-900
+      hover:shadow-[0_0_25px_rgba(255,255,255,0.6)]
+    `,
+      icon: `
+      bg-neutral-900 text-white
+    `,
+    },
   };
 
   const baseStyle =

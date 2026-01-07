@@ -88,9 +88,7 @@ export const HomeBanner = () => {
               href="https://api.whatsapp.com/send/?phone=628871510044&text=Halo%2C+saya+tertarik+dengan+layanan+Go+Space%21&type=phone_number&app_absent=0"
             >
               <Button
-                className={
-                  `rounded-full py-6 text-[1rem] ${bgNeutralGradientReverse} transition-colors duration-500 px-4 flex items-center space-x-2 `
-                }
+                className={`rounded-full py-6 text-[1rem] ${bgNeutralGradientReverse} transition-colors duration-500 px-4 flex items-center space-x-2 `}
               >
                 connect with us
               </Button>
@@ -134,10 +132,12 @@ export const HomeBanner = () => {
               initial={{ y: 30, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 1 }}
+              className="z-10"
             >
               <ArrowButton
                 label={"Explore Spaces"}
                 onClick={() => setOpenVideo(true)}
+                variant={"basic"}
               />
             </motion.div>
           </div>

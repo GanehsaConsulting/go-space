@@ -12,10 +12,7 @@ function Accordion(props) {
 function AccordionItem({ className, ...props }) {
   return (
     <AccordionPrimitive.Item
-      className={cn(
-        "overflow-hidden transition-shadow",
-        className
-      )}
+      className={cn("overflow-hidden transition-shadow", className)}
       {...props}
     />
   );
@@ -38,17 +35,20 @@ function AccordionTrigger({ className, children, ...props }) {
         )}
         {...props}
       >
-        <span className="max-w-[15rem] sm:max-w-sm" >{children}</span>
+        <span className="max-w-[15rem] sm:max-w-sm">{children}</span>
 
         {/* ICON */}
         <span
           className="
-            flex h-7 w-7 items-center justify-center
-            rounded-full bg-neutral-200 text-neutral-900 dark:bg-neutral-900 dark:text-white
-          "
+    flex h-7 w-7 shrink-0 aspect-square
+    items-center justify-center
+    rounded-full
+    bg-neutral-200 text-neutral-900
+    dark:bg-neutral-900 dark:text-white
+  "
         >
-          <FaPlus className="group-data-[state=open]:hidden size-3" />
-          <FaMinus className="hidden group-data-[state=open]:block size-3" />
+          <FaPlus className="group-data-[state=open]:hidden text-[12px]" />
+          <FaMinus className="hidden group-data-[state=open]:block text-[12px]" />
         </span>
       </AccordionPrimitive.Trigger>
     </AccordionPrimitive.Header>
@@ -66,10 +66,7 @@ function AccordionContent({ className, children, ...props }) {
       {...props}
     >
       <div
-        className={cn(
-          "p-5 text-sm text-gray-600 dark:text-gray-50",
-          className
-        )}
+        className={cn("p-5 text-sm text-gray-600 dark:text-gray-50", className)}
       >
         {children}
       </div>
@@ -77,9 +74,4 @@ function AccordionContent({ className, children, ...props }) {
   );
 }
 
-export {
-  Accordion,
-  AccordionItem,
-  AccordionTrigger,
-  AccordionContent,
-};
+export { Accordion, AccordionItem, AccordionTrigger, AccordionContent };

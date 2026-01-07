@@ -58,7 +58,7 @@ export const Contact = () => {
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row gap-12 md:gap-0 items-start">
         {/* ================= LEFT CONTENT ================= */}
         <div className="flex-1">
-          <h2 className="text-5xl font-semibold tracking-tight">
+          <h2 className="text-4xl sm:text-5xl font-semibold tracking-tight">
             Reach out <GoArrowUpRight className="inline-block mb-2" />
           </h2>
 

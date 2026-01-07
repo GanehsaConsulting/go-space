@@ -3,8 +3,7 @@ import { HeaderSection } from "./common/HeaderSection";
 import Image from "next/image";
 import { FiArrowUpRight } from "react-icons/fi";
 import Link from "next/link";
-import { Button } from "./ui/button";
-import { bgMainDarkGradient, bgNeutralGradient } from "@/lib/reuseClass";
+import { bgMainDarkGradient } from "@/lib/reuseClass";
 import { ArrowButton } from "./common/ArrowButton";
 
 const ServicesData = [
@@ -26,39 +25,100 @@ export const Services = () => {
   return (
     <section className="margin">
       <HeaderSection
-        title={"Our Services"}
-        desc={
-          "Go Space by Ganesha Consulting menyediakan layanan legalitas dan lainnya untuk mendukung bisnis Anda."
-        }
+        title="Our Services"
+        desc="Go Space by Ganesha Consulting menyediakan layanan legalitas dan lainnya untuk mendukung bisnis Anda."
       />
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 md:gap-7">
+      <div
+        className="
+        grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3
+        gap-4 sm:gap-6 md:gap-7
+      "
+      >
         {ServicesData.map((service, index) => (
           <div
-            className={`relative overflow-hidden aspect-square  rounded-2xl hover:-translate-y-5 cursor-pointer group mb-6 transition-all duration-500  ${bgMainDarkGradient}`}
-            key={index}
+            className={`
+    relative overflow-hidden
+    rounded-2xl cursor-pointer group
+    mb-6 transition-all duration-500
+    ${bgMainDarkGradient}
+
+    aspect-auto min-h-[250px] md:aspect-square
+    md:hover:-translate-y-5
+  `}
           >
+            {/* glow (desktop only) */}
+            <div
+              className="
+              absolute top-0
+              bg-goYellow text-goYellow text-4xl
+              blur-[60px]
+              hidden md:block
+            "
+            >
+              glow <br /> yellow
+            </div>
 
-<div className="absolute top-0 bg-goYellow text-goYellow text-4xl blur-[60px] " >glow <br /> yellow</div>
-
-            <div className="bg-white dark:bg-black rounded-out-tl-2xl pb-2 ps-2 rounded-bl-3xl right-0 top-0 absolute z-100">
+            {/* arrow */}
+            <div
+              className="
+              bg-white dark:bg-black
+              rounded-out-tl-2xl pb-2 ps-2
+              rounded-bl-3xl
+              right-0 top-0 absolute z-100
+            "
+            >
               <div className="bg-inherit rounded-out-rb-2xl">
-                {/* circle */}
-                <div className="bg-main text-white group-hover:bg-neutral-800 dark:bg-neutral-700 dark:text-white text-neutral-900 p-2.5 text-2xl rounded-full dark:group-hover:bg-white dark:group-hover:text-neutral-900">
-                  <FiArrowUpRight className="group-hover:animate-bounce" />
+                <div
+                  className="
+                  bg-main text-white
+                  p-2 md:p-2.5
+                  text-lg md:text-2xl
+                  rounded-full
+                  group-hover:bg-neutral-800
+                  dark:bg-neutral-700
+                  dark:group-hover:bg-white
+                  dark:group-hover:text-neutral-900
+                "
+                >
+                  <FiArrowUpRight className="md:group-hover:animate-bounce" />
                 </div>
               </div>
             </div>
-            <div className="absolute right-0 left-0 top-0 bottom-0 z-50">
-              <div className="flex justify-between items-center flex-col p-5">
+
+            {/* content */}
+            <div className="absolute inset-0 z-50">
+              <div
+                className="
+                flex flex-col items-center justify-between
+                p-4 md:p-5 h-full
+              "
+              >
                 <Image
                   src={service.imageSrc}
                   width={250}
                   height={250}
-                  alt="service 1"
-                  className="rounded-lg mb-4 group-hover:scale-105 duration-300 group-hover:grayscale"
+                  alt={service.title}
+                  className="
+                    rounded-lg mb-4
+                    duration-300
+                    group-hover:scale-105
+                    group-hover:grayscale
+
+                    w-[160px]
+                    sm:w-[200px]
+                    md:w-[250px]
+                    h-auto
+                  "
                 />
-                <h3 className="text-start text-xl font-semibold mb-2 ">
+
+                <h3
+                  className="
+                  text-base sm:text-lg md:text-xl
+                  font-semibold mb-2
+                  text-center md:text-start
+                "
+                >
                   {service.title}
                 </h3>
               </div>
@@ -66,21 +126,15 @@ export const Services = () => {
           </div>
         ))}
       </div>
+
       <div className="flex items-center justify-center mt-5">
-        <Link
-          href={
-            "https://www.ganeshaconsulting.co.id"
-          }
-          target="_blank"
-        >
-
+        <Link href="https://www.ganeshaconsulting.co.id" target="_blank">
           <ArrowButton
-          isAnchor={true}
-          label={"Lihat layanan lainnya"}
-          path={"https://www.ganeshaconsulting.co.id"}
-          variant={"dark"}
+            isAnchor
+            label="Lihat layanan lainnya"
+            path="https://www.ganeshaconsulting.co.id"
+            variant="dark"
           />
-
         </Link>
       </div>
     </section>
