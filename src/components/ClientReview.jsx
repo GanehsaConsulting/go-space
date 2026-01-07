@@ -9,6 +9,7 @@ import { FaPlay, FaPause } from "react-icons/fa";
 import { HeaderSection } from "./common/HeaderSection";
 import { Button } from "./ui/button";
 import Link from "next/link";
+import { ArrowButton } from "./common/ArrowButton";
 
 const testimonials = [
   {
@@ -150,7 +151,7 @@ export function ClientReview() {
                 <div className="bg-white dark:bg-black rounded-out-bl-2xl"></div>
                 <div className=" ps-2 pt-2 rounded-tl-3xl bg-white dark:bg-black">
                   <Link href={testimonial?.url} target="_blank">
-                    <div className="bg-neutral-800 text-white group-hover:bg-neutral-900 group-hover:text-white dark:group-hover:bg-blue-900 p-2 rounded-full">
+                    <div className="bg-main group-hover:bg-blue-300 text-white group-hover:text-white dark:group-hover:bg-blue-900 p-2 rounded-full">
                       <GoArrowUpRight className="text-lg" />
                     </div>
                   </Link>
@@ -177,19 +178,15 @@ export function ClientReview() {
             <div>Based on 17 Reviews</div>
           </div>
         </div>
-        <Link
-          href={
+        
+        <ArrowButton
+          label={"View all reviews"}
+          isAnchor={true}
+          path={
             "https://www.google.com/maps/place/GoSpace+Mampang/@-6.2556833,106.8279946,17z/data=!4m18!1m9!3m8!1s0x20f6bfe9853dcfa3:0x2ccb583ad9c6ca1b!2sGoSpace+Mampang!8m2!3d-6.2556833!4d106.8279946!9m1!1b1!16s%2Fg%2F11yhqv_71y!3m7!1s0x20f6bfe9853dcfa3:0x2ccb583ad9c6ca1b!8m2!3d-6.2556833!4d106.8279946!9m1!1b1!16s%2Fg%2F11yhqv_71y?entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoKLDEwMDc5MjA2OUgBUAM%3D"
           }
-          target="_blank"
-        >
-          <Button className={"rounded-full py-6 px-2 ps-4"}>
-            <div>View all reviews</div>
-            <div className="bg-white dark:bg-neutral-900 dark:text-white text-neutral-900 p-2 rounded-full">
-              <GoArrowUpRight className="text-lg" />
-            </div>
-          </Button>
-        </Link>
+          variant={"dark"}
+        />
       </div>
     </section>
   );

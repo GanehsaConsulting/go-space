@@ -73,7 +73,7 @@ export const Navbar = () => {
                   setTheme(!theme || theme === "light" ? "dark" : "light")
                 }
                 size="icon"
-                className="rounded-full bg-neutral-200/70 dark:bg-neutral-600 dark:text-white text-neutral-900 hover:text-white text-xl"
+                className="rounded-full bg-main text-white dark:bg-main dark:text-white hover:text-white dark:hover:bg-neutral-600 text-xl"
               >
                 {theme === "dark" ? <HiMoon /> : <MdSunny />}
               </Button>

@@ -3,7 +3,7 @@
 import { useRef } from "react";
 import { MdKeyboardArrowRight, MdKeyboardArrowLeft } from "react-icons/md";
 import { WhyUsData } from "../../public/data/WhyUsData";
-import { bgNeutralGradient } from "@/lib/reuseClass";
+import { bgMainDarkGradient, bgNeutralGradient } from "@/lib/reuseClass";
 
 export const WhyUs = () => {
   const scrollRef = useRef(null);
@@ -62,9 +62,12 @@ export const WhyUs = () => {
         {data.map((item, index) => (
           <div
             key={index}
-            className={`snap-start min-w-60 h-80  p-5 rounded-2xl flex flex-col justify-between group transition duration-800 cursor-pointer drop-shadow-destructive ${bgNeutralGradient}`}
+            className={`relative overflow-hidden snap-start min-w-60 h-80  p-5 rounded-2xl flex flex-col justify-between group transition duration-800 cursor-pointer drop-shadow-destructive ${bgMainDarkGradient}`}
           >
-            <div className="bg-neutral-900 text-white group-hover:bg-white dark:bg-neutral-900 group-hover:text-neutral-900 dark:group-hover:text-white w-fit p-3 rounded-full text-3xl transition">
+
+            <div className="bg-goYellow text-4xl aspect-square absolute z-50 -top-10 -right-10 rounded-full  blur-[80px] " >ashdkahs</div>
+
+            <div className="asbolute z-70 bg-white text-neutral-900 dark:text-white group-hover:bg-white dark:bg-black group-hover:text-neutral-900 dark:group-hover:text-white w-fit p-3 rounded-full text-3xl transition group-hover:animate-pulse duration-300">
               {item.icon}
             </div>
 

@@ -6,6 +6,7 @@ import { IoEyeSharp } from "react-icons/io5";
 import { HeaderSection } from "./common/HeaderSection";
 import Link from "next/link";
 import { Button } from "./ui/button";
+import { ArrowButton } from "./common/ArrowButton";
 
 const spaces = [
   {
@@ -141,24 +142,15 @@ export const Spaces = () => {
                     </span>
                   </div>
 
-                  <button
+                  <ArrowButton
+                    label={"Explore Spaces"}
                     onClick={(e) => {
                       e.stopPropagation();
                       setActiveSpace(space);
                     }}
-                    className="
-                      flex items-center justify-between
-                      bg-white/80 backdrop-blur-md
-                      text-gray-900 ps-4 pe-2 py-2
-                      rounded-full hover:bg-gray-100
-                      transition-colors font-medium w-full
-                    "
-                  >
-                    <span>Explore More</span>
-                    <span className="bg-black text-white p-2 rounded-full">
-                      <GoArrowUpRight className="text-lg" />
-                    </span>
-                  </button>
+                    className={"w-full dark:hover:bg-neutral-900 !important  "}
+                  />
+
                 </div>
               </div>
             </div>

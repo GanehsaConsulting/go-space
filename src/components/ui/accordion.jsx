@@ -44,7 +44,7 @@ function AccordionTrigger({ className, children, ...props }) {
         <span
           className="
             flex h-7 w-7 items-center justify-center
-            rounded-full bg-neutral-900 text-white
+            rounded-full bg-neutral-200 text-neutral-900 dark:bg-neutral-900 dark:text-white
           "
         >
           <FaPlus className="group-data-[state=open]:hidden size-3" />

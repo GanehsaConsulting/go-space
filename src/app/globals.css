@@ -27,12 +27,10 @@ button, a {
   display: none;
 }
 
-@theme {
-  --color-main: #7458A6;
-  --color-secondary: #FEC841;
-}
 
 @theme inline {
+  --color-main: #7458A6;
+  --color-goYellow: #FEC841;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);

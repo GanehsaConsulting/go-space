@@ -11,6 +11,8 @@ import Link from "next/link";
 import { useTheme } from "next-themes";
 import { HiMoon } from "react-icons/hi";
 import { MdSunny } from "react-icons/md";
+import { ArrowButton } from "./common/ArrowButton";
+import { bgNeutralGradientReverse } from "@/lib/reuseClass";
 
 export const HomeBanner = () => {
   const { theme, setTheme } = useTheme();
@@ -87,7 +89,7 @@ export const HomeBanner = () => {
             >
               <Button
                 className={
-                  "rounded-full py-6 text-[1rem] bg-neutral-800 dark:bg-neutral-300"
+                  `rounded-full py-6 text-[1rem] ${bgNeutralGradientReverse} transition-colors duration-500 px-4 flex items-center space-x-2 `
                 }
               >
                 connect with us
@@ -98,7 +100,7 @@ export const HomeBanner = () => {
                 setTheme(!theme || theme === "light" ? "dark" : "light")
               }
               size="icon"
-              className="rounded-full p-6 bg-neutral-800 text-white dark:bg-neutral-300 dark:text-neutral-900 text-xl  "
+              className={`rounded-full p-6 bg-neutral-800 text-white dark:bg-neutral-300 dark:text-neutral-900 text-xl ${bgNeutralGradientReverse} transition-colors duration-500 `}
             >
               {theme === "dark" ? <HiMoon /> : <MdSunny />}
             </Button>
@@ -133,15 +135,10 @@ export const HomeBanner = () => {
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 1 }}
             >
-              <Button
+              <ArrowButton
+                label={"Explore Spaces"}
                 onClick={() => setOpenVideo(true)}
-                className="bg-white/70 backdrop-blur-md text-neutral-900 rounded-full pe-1.5 py-5 space-x-2 hover:bg-white/70 transition-all group"
-              >
-                <span>Explore Spaces</span>
-                <span className="bg-black rounded-full p-2 text-white group-hover:scale-115 transition">
-                  <GoArrowUpRight />
-                </span>
-              </Button>
+              />
             </motion.div>
           </div>
         </div>

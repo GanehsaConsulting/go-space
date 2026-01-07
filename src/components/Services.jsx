@@ -4,7 +4,8 @@ import Image from "next/image";
 import { FiArrowUpRight } from "react-icons/fi";
 import Link from "next/link";
 import { Button } from "./ui/button";
-import { bgNeutralGradient } from "@/lib/reuseClass";
+import { bgMainDarkGradient, bgNeutralGradient } from "@/lib/reuseClass";
+import { ArrowButton } from "./common/ArrowButton";
 
 const ServicesData = [
   {
@@ -34,13 +35,16 @@ export const Services = () => {
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 md:gap-7">
         {ServicesData.map((service, index) => (
           <div
-            className={`relative aspect-square  rounded-2xl hover:-translate-y-5 cursor-pointer group overflow-hidden mb-6 transition-all duration-500  ${bgNeutralGradient}`}
+            className={`relative overflow-hidden aspect-square  rounded-2xl hover:-translate-y-5 cursor-pointer group mb-6 transition-all duration-500  ${bgMainDarkGradient}`}
             key={index}
           >
+
+<div className="absolute top-0 bg-goYellow text-goYellow text-4xl blur-[60px] " >glow <br /> yellow</div>
+
             <div className="bg-white dark:bg-black rounded-out-tl-2xl pb-2 ps-2 rounded-bl-3xl right-0 top-0 absolute z-100">
               <div className="bg-inherit rounded-out-rb-2xl">
                 {/* circle */}
-                <div className="bg-neutral-200 dark:bg-neutral-700 dark:text-white text-neutral-900 p-2.5 text-2xl rounded-full dark:group-hover:bg-white dark:group-hover:text-neutral-900">
+                <div className="bg-main text-white group-hover:bg-neutral-800 dark:bg-neutral-700 dark:text-white text-neutral-900 p-2.5 text-2xl rounded-full dark:group-hover:bg-white dark:group-hover:text-neutral-900">
                   <FiArrowUpRight className="group-hover:animate-bounce" />
                 </div>
               </div>
@@ -69,12 +73,14 @@ export const Services = () => {
           }
           target="_blank"
         >
-          <Button className={"rounded-full py-6 px-2 ps-4 space-x-3"}>
-            <div>Lihat Layanan Lainnya</div>
-            <div className="bg-white dark:bg-neutral-900 dark:text-white text-neutral-900 p-2 rounded-full">
-              <FiArrowUpRight className="text-lg" />
-            </div>
-          </Button>
+
+          <ArrowButton
+          isAnchor={true}
+          label={"Lihat layanan lainnya"}
+          path={"https://www.ganeshaconsulting.co.id"}
+          variant={"dark"}
+          />
+
         </Link>
       </div>
     </section>

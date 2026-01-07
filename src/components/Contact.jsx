@@ -7,6 +7,7 @@ import { AiOutlineWhatsApp } from "react-icons/ai";
 import { FaCheck, FaInstagram } from "react-icons/fa6";
 import Link from "next/link";
 import { useState } from "react";
+import { ArrowButton } from "./common/ArrowButton";
 
 export const Contact = () => {
   const [form, setForm] = useState({
@@ -66,7 +67,7 @@ export const Contact = () => {
             support team. We're here to help with any inquiries you may have.
           </p>
 
-          <ul className="mt-8 space-y-4 text-sm text-neutral-700 dark:text-gray-300">
+          <ul className="mt-8 space-y-4 text-sm text-neutral-900 dark:text-white dark:text-gray-300">
             <li className="flex items-center gap-3">
               <span className="p-2 border border-black/30 bg-neutral-100 dark:bg-neutral-800 shadow rounded-md">
                 <FaCheck />
@@ -127,8 +128,8 @@ export const Contact = () => {
               onChange={handleChange}
               required
               placeholder="Name"
-              className="rounded-2xl bg-neutral-100 dark:bg-neutral-900 border border-neutral-200 px-4 py-3 
-                         text-sm text-neutral-700 placeholder:text-neutral-400 
+              className="rounded-2xl bg-neutral-300 dark:bg-neutral-900 border border-neutral-200 px-4 py-3 
+                         text-sm text-neutral-900 dark:text-white placeholder:text-neutral-700 dark:placeholder:text-neutral-400 
                          focus:outline-none focus:border-neutral-400 dark:border-neutral-700"
             />
 
@@ -139,8 +140,8 @@ export const Contact = () => {
               required
               type="email"
               placeholder="Email"
-              className="rounded-2xl bg-neutral-100 dark:bg-neutral-900 border border-neutral-200 px-4 py-3 
-                         text-sm text-neutral-700 placeholder:text-neutral-400 
+              className="rounded-2xl bg-neutral-300 dark:bg-neutral-900 border border-neutral-200 px-4 py-3 
+                         text-sm text-neutral-900 dark:text-white placeholder:text-neutral-700 dark:placeholder:text-neutral-400 
                          focus:outline-none focus:border-neutral-400 dark:border-neutral-700"
             />
           </div>
@@ -152,18 +153,18 @@ export const Contact = () => {
             required
             placeholder="Message"
             rows={6}
-            className="mt-4 w-full rounded-2xl bg-neutral-100 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-700
-                       px-4 py-3 text-sm text-neutral-700 placeholder:text-neutral-400 
+            className="mt-4 w-full rounded-2xl bg-neutral-300 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-700
+                       px-4 py-3 text-sm text-neutral-900 dark:text-white placeholder:text-neutral-700 dark:placeholder:text-neutral-400 
                        focus:outline-none focus:border-neutral-400 resize-none"
           />
 
-          <Button
-            type="submit"
-            disabled={loading}
-            className="mt-6 w-full rounded-full bg-neutral-800 dark:bg-white dark:text-black font-semibold text-white py-6 hover:bg-neutral-700 disabled:opacity-50"
-          >
-            {loading ? "Sending..." : "Submit"}
-          </Button>
+              <ArrowButton
+                label={loading ? "Sending..." : "Submit"}
+                disabled={loading}
+                type="submit"
+                variant="dark"
+                className="mt-6 w-full !important"
+              />
 
           {success && (
             <p className="mt-4 text-sm text-green-600 font-medium">{success}</p>
