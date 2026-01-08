@@ -25,7 +25,7 @@ export const metadata = {
     template: "%s | Go Space",
   },
   description:
-    "Go Space adalah layanan Virtual Office profesional oleh Ganesha Consulting. Alamat bisnis strategis, legalitas lengkap, dan solusi kantor modern untuk bisnis Anda.",
+    "Layanan Virtual Office termurah di Jakarta Selatan",
   keywords: [
     "virtual office",
     "virtual office jakarta",
@@ -39,7 +39,6 @@ export const metadata = {
   publisher: "Go Space",
   metadataBase: new URL("https://gospace.id"), 
 };
-
 
 export default function RootLayout({ children }) {
   return (
