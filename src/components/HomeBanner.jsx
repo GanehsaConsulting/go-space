@@ -135,7 +135,7 @@ export const HomeBanner = () => {
               className="z-10"
             >
               <ArrowButton
-                label={"Explore Spaces"}
+                label={"Office Tour"}
                 onClick={() => setOpenVideo(true)}
                 variant={"basic"}
               />
