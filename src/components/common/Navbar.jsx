@@ -48,7 +48,7 @@ export const Navbar = () => {
           animate={{ y: 0, opacity: 1 }}
           exit={{ y: -80, opacity: 0 }}
           transition={{ duration: 0.4, ease: "easeOut" }}
-          className="z-1000 hidden md:block fixed top-4 left-1/2 -translate-x-1/2 z-50
+          className="z-9999 hidden md:block fixed top-4 left-1/2 -translate-x-1/2 z-50
                      w-[95%] max-w-2xl rounded-full ps-1 pe-1 py-1"
         >
           <div className="flex items-center justify-center gap-2">
@@ -85,7 +85,7 @@ export const Navbar = () => {
               }
               target="_blank"
             >
-              <Button className="bg-white/70 dark:bg-neutral-700/50 text-neutral-900 dark:text-white backdrop-blur-md rounded-full pe-3 py-5 border-black/30 border shadow-2xl ">
+              <Button className="bg-white/70 dark:bg-neutral-700/50 text-neutral-900 dark:text-white backdrop-blur-md rounded-full pe-3 py-5 border-black/30 border shadow-2xl hover:bg-white/70 ">
                 <span>Contact</span>
                 <GoArrowUpRight />
               </Button>
@@ -108,7 +108,7 @@ export const Navbar = () => {
                 className="fixed bottom-24 right-3
                            bg-white/90 backdrop-blur-lg
                            border border-black/20 dark:border-white/20 shadow-xl
-                           rounded-2xl px-3 py-3 space-y-2 z-1000"
+                           rounded-2xl px-3 py-3 space-y-2 z-9999"
               >
                 <Button
                   onClick={() =>

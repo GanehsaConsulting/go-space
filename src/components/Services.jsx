@@ -79,7 +79,7 @@ export const Services = () => {
                   className="
                   bg-main text-white
                   p-2 md:p-2.5
-                  text-lg md:text-2xl
+                  text-lg
                   rounded-full
                   group-hover:bg-neutral-800
                   dark:bg-neutral-700

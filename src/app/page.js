@@ -1,4 +1,5 @@
 import { ClientReview } from "@/components/ClientReview";
+import AnimateOnScroll from "@/components/common/AnimateOnScroll";
 import { Navbar } from "@/components/common/Navbar";
 import { Contact } from "@/components/Contact";
 import { FAQ } from "@/components/FAQ";
@@ -16,15 +17,88 @@ export default async function Home() {
   return (
     <>
       <Navbar />
-      <HomeBanner />
-      <WhyUs />
-      <Spaces />
-      <PriceList data={packages} />
-      <ClientReview />
-      <Services/>
-      <Socmed/>
-      <FAQ />
-      <Contact />
+
+      <AnimateOnScroll
+        once={false}
+        animation="blurInUp"
+        duration={0.5}
+        delay={0}
+      >
+        <HomeBanner />
+      </AnimateOnScroll>
+
+      <AnimateOnScroll
+        once={false}
+        animation="blurInUp"
+        duration={0.5}
+        delay={0}
+      >
+        <WhyUs />
+      </AnimateOnScroll>
+
+      <AnimateOnScroll
+        once={false}
+        animation="blurInUp"
+        duration={0.5}
+        delay={0}
+      >
+        <Spaces />
+      </AnimateOnScroll>
+
+      <AnimateOnScroll
+        once={false}
+        animation="blurInUp"
+        duration={0.5}
+        delay={0}
+      >
+        <PriceList data={packages} />
+      </AnimateOnScroll>
+
+      <AnimateOnScroll
+        once={false}
+        animation="blurInUp"
+        duration={0.5}
+        delay={0}
+      >
+        <ClientReview />
+      </AnimateOnScroll>
+
+      <AnimateOnScroll
+        once={false}
+        animation="blurInUp"
+        duration={0.5}
+        delay={0}
+      >
+        <Services />
+      </AnimateOnScroll>
+
+      <AnimateOnScroll
+        once={false}
+        animation="blurInUp"
+        duration={0.5}
+        delay={0}
+      >
+        <Socmed />
+      </AnimateOnScroll>
+
+      <AnimateOnScroll
+        once={false}
+        animation="blurInUp"
+        duration={0.5}
+        delay={0}
+      >
+        <FAQ />
+      </AnimateOnScroll>
+
+      <AnimateOnScroll
+        once={false}
+        animation="blurInUp"
+        duration={0.5}
+        delay={0}
+      >
+        <Contact />
+      </AnimateOnScroll>
     </>
   );
 }
+

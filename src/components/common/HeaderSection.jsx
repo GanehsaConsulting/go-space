@@ -11,7 +11,7 @@ export const HeaderSection = ({ title, desc, className }) => {
         </h2>
       </div>
       <div>
-        <p className="text-gray-600 dark:text-gray-300 max-w-md text-end">{desc}</p>
+        <p className="text-gray-600 dark:text-gray-300 max-w-md text-start sm:text-end">{desc}</p>
       </div>
     </div>
   );
