@@ -5,6 +5,7 @@ import { FAQ } from "@/components/FAQ";
 import { HomeBanner } from "@/components/HomeBanner";
 import { PriceList } from "@/components/PriceList";
 import { Services } from "@/components/Services";
+import { Socmed } from "@/components/Socmed";
 import { Spaces } from "@/components/Spaces";
 import { WhyUs } from "@/components/WhyUs";
 import { getPackages } from "@/lib/getPackages";
@@ -21,6 +22,7 @@ export default async function Home() {
       <PriceList data={packages} />
       <ClientReview />
       <Services/>
+      <Socmed/>
       <FAQ />
       <Contact />
     </>

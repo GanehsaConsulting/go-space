@@ -10,14 +10,17 @@ const ServicesData = [
   {
     title: "Pendirian PT",
     imageSrc: "/assets/illustrations/pendirian-pt.svg",
+    path: "https://www.ganeshaconsulting.co.id/pendirian-pt"
   },
   {
     title: "Pendirian CV",
     imageSrc: "/assets/illustrations/pendirian-cv.svg",
+    path: "https://www.ganeshaconsulting.co.id/pendirian-cv"
   },
   {
     title: "Website Development",
     imageSrc: "/assets/illustrations/website.svg",
+    path: "https://www.ganeshaconsulting.co.id/web-development"
   },
 ];
 
@@ -36,8 +39,11 @@ export const Services = () => {
       "
       >
         {ServicesData.map((service, index) => (
-          <div
-            className={`
+          <Link
+          key={index}
+          href={service?.path}
+          target="_blank"
+          className={`
     relative overflow-hidden
     rounded-2xl cursor-pointer group
     mb-6 transition-all duration-500
@@ -123,7 +129,7 @@ export const Services = () => {
                 </h3>
               </div>
             </div>
-          </div>
+          </Link>
         ))}
       </div>
 

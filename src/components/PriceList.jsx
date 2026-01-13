@@ -18,6 +18,7 @@ const TABS = [
 export const PriceList = ({ data }) => {
   const [activeTab, setActiveTab] = useState("virtual");
   const [expandedCards, setExpandedCards] = useState({});
+  const [badge, setBadge] = useState();
 
   useEffect(() => {
     setExpandedCards({});
@@ -29,6 +30,14 @@ export const PriceList = ({ data }) => {
       [index]: !prev[index],
     }));
   };
+
+  useEffect(() => {
+    if (activeTab === "virtual") {
+      setBadge("1 Year");
+    } else if (activeTab === "meeting") {
+      setBadge("2 Hour");
+    }
+  }, [activeTab]);
 
   const filteredData = data?.filter((plan) => {
     if (activeTab === "virtual") {
@@ -129,7 +138,7 @@ export const PriceList = ({ data }) => {
                           "font-semibold bg-goYellow/30 border-goYellow text-neutral-800 px-4 py-1 group-hover:text-white dark:text-white group-hover:border-white group-hover:bg-white/10 dark:group-hover:bg-neutral-500 "
                         }
                       >
-                        1 Year
+                        {badge}
                       </Badge>
 
                       <div className="flex items-center gap-2">
