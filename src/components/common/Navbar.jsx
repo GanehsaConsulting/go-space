@@ -16,7 +16,34 @@ export const Navbar = () => {
   const [showDesktop, setShowDesktop] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const [openMenu, setOpenMenu] = useState(false);
+  const [activeSection, setActiveSection] = useState("home");
   const { theme, setTheme } = useTheme();
+
+  useEffect(() => {
+    const sections = ["home", "spaces", "pricing", "faq"];
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id);
+          }
+        });
+      },
+      {
+        root: null,
+        rootMargin: "-40% 0px -40% 0px",
+        threshold: 0,
+      },
+    );
+
+    sections.forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
+    });
+
+    return () => observer.disconnect();
+  }, []);
 
   useEffect(() => {
     const handleResize = () => {
@@ -38,6 +65,11 @@ export const Navbar = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, [isMobile]);
+
+  const isActive = (id) =>
+    activeSection === id
+      ? "text-purple-600 border-b-2 border-purple-500 transition-colors duration-500"
+      : "text-neutral-800 dark:text-white transition-colors duration-500";
 
   return (
     <AnimatePresence>
@@ -62,10 +94,20 @@ export const Navbar = () => {
 
             <div className="py-1 ps-5 pe-1 rounded-full bg-white/70 dark:bg-neutral-700/50 backdrop-blur-sm border border-black/20 dark:border-white/20 shadow-2xl flex items-center gap-5">
               <div className="flex items-center gap-9 text-[15px] font-medium text-neutral-800 dark:text-white">
-                <a href="/#">Home</a>
-                <a href="/#spaces">Spaces</a>
-                <a href="/#pricing">Pricing</a>
-                <a href="/#faq">Faq</a>
+                <div className="flex items-center gap-9 text-[15px] font-medium">
+                  <a href="/#home" className={isActive("home")}>
+                    Home
+                  </a>
+                  <a href="/#spaces" className={isActive("spaces")}>
+                    Spaces
+                  </a>
+                  <a href="/#pricing" className={isActive("pricing")}>
+                    Pricing
+                  </a>
+                  <a href="/#faq" className={isActive("faq")}>
+                    Faq
+                  </a>
+                </div>
               </div>
 
               <Button
@@ -114,7 +156,6 @@ export const Navbar = () => {
                   onClick={() =>
                     setTheme(!theme || theme === "light" ? "dark" : "light")
                   }
-                  
                   className="w-full flex justify-between bg-main dark:bg-neutral-900 dark:text-white z-100"
                 >
                   Mode {theme === "dark" ? <HiMoon /> : <MdSunny />}
@@ -126,7 +167,10 @@ export const Navbar = () => {
                   }
                   target="_blank"
                 >
-                  <Button variant="ghost" className="text-neutral-900 w-full rounded-full flex justify-between">
+                  <Button
+                    variant="ghost"
+                    className="text-neutral-900 w-full rounded-full flex justify-between"
+                  >
                     Contact <GoArrowUpRight />
                   </Button>
                 </Link>
@@ -146,10 +190,26 @@ export const Navbar = () => {
                        rounded-full px-2 py-2"
           >
             <div className="flex items-center justify-between ">
-              <NavIcon href="#" icon={<HiHome />} />
-              <NavIcon href="#spaces" icon={<HiOfficeBuilding />} />
-              <NavIcon href="#pricing" icon={<BsCurrencyDollar />} />
-              <NavIcon href="#faq" icon={<BsQuestionLg />} />
+              <NavIcon
+                href="#"
+                icon={<HiHome />}
+                active={activeSection === "home"}
+              />
+              <NavIcon
+                href="#spaces"
+                icon={<HiOfficeBuilding />}
+                active={activeSection === "spaces"}
+              />
+              <NavIcon
+                href="#pricing"
+                icon={<BsCurrencyDollar />}
+                active={activeSection === "pricing"}
+              />
+              <NavIcon
+                href="#faq"
+                icon={<BsQuestionLg />}
+                active={activeSection === "faq"}
+              />
 
               <button
                 onClick={() => setOpenMenu(!openMenu)}
@@ -166,11 +226,17 @@ export const Navbar = () => {
   );
 };
 
-const NavIcon = ({ href, icon }) => (
+const NavIcon = ({ href, icon, active }) => (
   <a
     href={href}
-    className="w-11 h-11 flex items-center justify-center rounded-full
-               text-neutral-700 text-xl hover:bg-neutral-800 hover:text-white dark:text-white transition dark:hover:bg-white/80 dark:hover:text-neutral-900"
+    className={`
+      w-11 h-11 flex items-center justify-center rounded-full text-xl transition
+      ${
+        active
+          ? "bg-neutral-400/60 text-neutral-900 dark:bg-white dark:text-neutral-900"
+          : "text-neutral-700 hover:bg-neutral-800 hover:text-white dark:text-white dark:hover:bg-white/80 dark:hover:text-neutral-900"
+      }
+    `}
   >
     {icon}
   </a>

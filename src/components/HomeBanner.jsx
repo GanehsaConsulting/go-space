@@ -28,7 +28,7 @@ export const HomeBanner = () => {
   }, []);
 
   return (
-    <section id="#" className="p-4 font-nunito mb-12">
+    <section id="home" className="p-4 font-nunito mb-12">
       <div
         className="relative overflow-hidden w-full rounded-[40px]  h-[calc(100vh-7rem)]
     sm:h-[calc(100vh-2rem)]"
@@ -73,7 +73,7 @@ export const HomeBanner = () => {
           className="absolute left-0 right-0 top-0 bg-linear-to-b from-black/70 via-black/50 to-transparent z-5 py-5"
         >
           <div className="text-white font-semibold hidden sm:flex justify-center gap-6 md:gap-17 text-sm md:text-xl">
-            <a href="/#">Home</a>
+            <a href="/#home">Home</a>
             <a href="/#spaces">Spaces</a>
             <a href="/#pricing">Pricing</a>
             <a href="/#faq">Faq</a>
