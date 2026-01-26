@@ -15,7 +15,7 @@ export default async function Home() {
   const packages = await getPackages();
 
   return (
-    <>
+    <main className="relative" >
       <Navbar />
 
       <AnimateOnScroll
@@ -98,7 +98,7 @@ export default async function Home() {
       >
         <Contact />
       </AnimateOnScroll>
-    </>
+    </main>
   );
 }
 
