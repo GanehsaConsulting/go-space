@@ -64,10 +64,10 @@ export const Contact = () => {
 
           <p className="mt-6 text-neutral-600 dark:text-gray-50 max-w-md leading-relaxed">
             Have a question or need assistance? Reach out to our dedicated
-            support team. We're here to help with any inquiries you may have.
+            support team. We&apos;re here to help with any inquiries you may have.
           </p>
 
-          <ul className="mt-8 space-y-4 text-sm text-neutral-900 dark:text-white dark:text-gray-300">
+          <ul className="mt-8 space-y-4 text-sm text-neutral-900 dark:text-white">
             <li className="flex items-center gap-3">
               <span className="p-2 border border-black/30 bg-neutral-100 dark:bg-neutral-800 shadow rounded-md">
                 <FaCheck />

@@ -45,7 +45,7 @@ export async function getPackages() {
     const res = await fetch(
       `https://ganesha-cms.vercel.app/api/business/packages?serviceId=11&limit=100`,
       {
-        next: { revalidate: 3600 }, // Revalidate every hour
+        next: { revalidate: 100 }, // Revalidate every 100 seconds
       }
     );
     if (!res.ok) {
