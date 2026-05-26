@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { calculateOriginalPrice, formatToRupiah } from "@/lib/helpers";
 import { HeaderSection } from "./common/HeaderSection";
@@ -18,11 +18,7 @@ const TABS = [
 export const PriceList = ({ data }) => {
   const [activeTab, setActiveTab] = useState("virtual");
   const [expandedCards, setExpandedCards] = useState({});
-  const [badge, setBadge] = useState();
-
-  useEffect(() => {
-    setExpandedCards({});
-  }, [activeTab]);
+  const badge = activeTab === "virtual" ? "1 Year" : "2 Hour";
 
   const toggleExpand = (index) => {
     setExpandedCards((prev) => ({
@@ -30,14 +26,6 @@ export const PriceList = ({ data }) => {
       [index]: !prev[index],
     }));
   };
-
-  useEffect(() => {
-    if (activeTab === "virtual") {
-      setBadge("1 Year");
-    } else if (activeTab === "meeting") {
-      setBadge("2 Hour");
-    }
-  }, [activeTab]);
 
   const filteredData = data?.filter((plan) => {
     if (activeTab === "virtual") {
@@ -67,7 +55,10 @@ export const PriceList = ({ data }) => {
               return (
                 <button
                   key={tab.value}
-                  onClick={() => setActiveTab(tab.value)}
+                  onClick={() => {
+                    setActiveTab(tab.value);
+                    setExpandedCards({});
+                  }}
                   className={`
                     px-6 py-2 rounded-full text-sm font-semibold transition-all
                     ${
@@ -159,7 +150,7 @@ export const PriceList = ({ data }) => {
                     <ul className="space-y-3 px-6">
                       {plan.features.slice(0, 4).map((item, i) => (
                         <li key={i} className="flex items-start gap-3">
-                          <IoMdCheckmarkCircleOutline className="text-purple-900 group-hover:text-white dark:text-white/70 text-xl mt-0.5 flex-shrink-0 transition-colors dark:group-hover:text-neutral-700" />
+                          <IoMdCheckmarkCircleOutline className="text-purple-900 group-hover:text-white dark:text-white/70 text-xl mt-0.5 shrink-0 transition-colors dark:group-hover:text-neutral-700" />
                           <span className="text-gray-700 group-hover:text-white dark:text-white/70 text-sm transition-colors font-semibold dark:group-hover:text-neutral-700">
                             {item.feature}
                           </span>
@@ -179,7 +170,7 @@ export const PriceList = ({ data }) => {
                         <ul className="space-y-3 mt-3">
                           {plan.features.slice(4).map((item, i) => (
                             <li key={i + 4} className="flex items-start gap-3 ">
-                              <IoMdCheckmarkCircleOutline className="text-purple-900 group-hover:text-white dark:text-white text-xl mt-0.5 flex-shrink-0 transition-colors dark:group-hover:text-neutral-700" />
+                              <IoMdCheckmarkCircleOutline className="text-purple-900 group-hover:text-white dark:text-white text-xl mt-0.5 shrink-0 transition-colors dark:group-hover:text-neutral-700" />
                               <span className="text-neutral-600 group-hover:text-white dark:text-white text-sm transition-colors dark:group-hover:text-neutral-700 font-semibold">
                                 {item.feature}
                               </span>

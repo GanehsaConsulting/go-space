@@ -130,7 +130,7 @@ export function ClientReview() {
 
                 {/* Testimonial Text */}
                 <p className="mb-6 text-sm leading-relaxed">
-                  "{testimonial.text}"
+                  &ldquo;{testimonial.text}&rdquo;
                 </p>
                 {/* Author Info */}
                 <div className="flex items-center gap-3">

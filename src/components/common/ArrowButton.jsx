@@ -3,6 +3,28 @@ import { Button } from "../ui/button";
 import Link from "next/link";
 import { FiArrowUpRight } from "react-icons/fi";
 
+const IconAnimation = () => (
+  <div className="relative w-5 h-5 overflow-hidden">
+    <FiArrowUpRight
+      className="
+          absolute inset-0 text-lg
+          transition-all duration-300 ease-out
+          group-hover:-translate-y-2 group-hover:translate-x-2
+          group-hover:opacity-0
+        "
+    />
+    <FiArrowUpRight
+      className="
+          absolute inset-0 text-lg
+          opacity-0 translate-y-2 -translate-x-2
+          transition-all duration-300 ease-out
+          group-hover:translate-y-0 group-hover:translate-x-0
+          group-hover:opacity-100
+        "
+    />
+  </div>
+);
+
 export const ArrowButton = ({
   label,
   isAnchor = false,
@@ -62,38 +84,16 @@ export const ArrowButton = ({
   const buttonStyle = `${baseStyle} ${variants[variant].button} ${className}`;
   const iconStyle = `${variants[variant].icon} p-2 rounded-full transition`;
 
-  const IconAnimation = () => (
-    <div className="relative w-5 h-5 overflow-hidden">
-      <FiArrowUpRight
-        className="
-          absolute inset-0 text-lg
-          transition-all duration-300 ease-out
-          group-hover:-translate-y-2 group-hover:translate-x-2
-          group-hover:opacity-0
-        "
-      />
-      <FiArrowUpRight
-        className="
-          absolute inset-0 text-lg
-          opacity-0 translate-y-2 -translate-x-2
-          transition-all duration-300 ease-out
-          group-hover:translate-y-0 group-hover:translate-x-0
-          group-hover:opacity-100
-        "
-      />
-    </div>
-  );
-
   if (isAnchor) {
     return (
-      <Link href={path} target="_blank">
-        <Button className={buttonStyle} {...props}>
+      <Button asChild className={buttonStyle} {...props}>
+        <Link href={path} target="_blank" rel="noopener noreferrer">
           <div>{label}</div>
           <div className={iconStyle}>
             <IconAnimation />
           </div>
-        </Button>
-      </Link>
+        </Link>
+      </Button>
     );
   }
 

@@ -10,6 +10,7 @@ import { RiContactsFill } from "react-icons/ri";
 import { VscListFlat } from "react-icons/vsc";
 import { Button } from "../ui/button";
 import Link from "next/link";
+import Image from "next/image";
 import { useTheme } from "next-themes";
 
 export const Navbar = () => {
@@ -80,33 +81,35 @@ export const Navbar = () => {
           animate={{ y: 0, opacity: 1 }}
           exit={{ y: -80, opacity: 0 }}
           transition={{ duration: 0.4, ease: "easeOut" }}
-          className="z-9999 hidden md:block fixed top-4 left-1/2 -translate-x-1/2 z-50
+          className="z-9999 hidden md:block fixed top-4 left-1/2 -translate-x-1/2
                      w-[95%] max-w-2xl rounded-full ps-1 pe-1 py-1"
         >
           <div className="flex items-center justify-center gap-2">
             <div className="flex items-center gap-2 bg-white/70 dark:bg-neutral-700/50 backdrop-blur-sm border border-black/20 dark:border-white/20  px-4 py-2 rounded-full shadow-2xl">
-              <img
+              <Image
                 src="/assets/go-logo.png"
                 alt="Go Space"
-                className="h-7 dark:brightness-1000"
+                width={58}
+                height={28}
+                className="h-7 w-auto dark:brightness-1000"
               />
             </div>
 
             <div className="py-1 ps-5 pe-1 rounded-full bg-white/70 dark:bg-neutral-700/50 backdrop-blur-sm border border-black/20 dark:border-white/20 shadow-2xl flex items-center gap-5">
               <div className="flex items-center gap-9 text-[15px] font-medium text-neutral-800 dark:text-white">
                 <div className="flex items-center gap-9 text-[15px] font-medium">
-                  <a href="/#home" className={isActive("home")}>
+                  <Link href="/#home" className={isActive("home")}>
                     Home
-                  </a>
-                  <a href="/#spaces" className={isActive("spaces")}>
+                  </Link>
+                  <Link href="/#spaces" className={isActive("spaces")}>
                     Spaces
-                  </a>
-                  <a href="/#pricing" className={isActive("pricing")}>
+                  </Link>
+                  <Link href="/#pricing" className={isActive("pricing")}>
                     Pricing
-                  </a>
-                  <a href="/#faq" className={isActive("faq")}>
+                  </Link>
+                  <Link href="/#faq" className={isActive("faq")}>
                     Faq
-                  </a>
+                  </Link>
                 </div>
               </div>
 
@@ -121,17 +124,21 @@ export const Navbar = () => {
               </Button>
             </div>
 
-            <Link
-              href={
-                "https://api.whatsapp.com/send/?phone=628871510044&text=Halo%2C+saya+tertarik+dengan+layanan+Go+Space%21&type=phone_number&app_absent=0"
-              }
-              target="_blank"
+            <Button
+              asChild
+              className="bg-white/70 dark:bg-neutral-700/50 text-neutral-900 dark:text-white backdrop-blur-md rounded-full pe-3 py-5 border-black/30 border shadow-2xl hover:bg-white/70 "
             >
-              <Button className="bg-white/70 dark:bg-neutral-700/50 text-neutral-900 dark:text-white backdrop-blur-md rounded-full pe-3 py-5 border-black/30 border shadow-2xl hover:bg-white/70 ">
+              <Link
+                href={
+                  "https://api.whatsapp.com/send/?phone=628871510044&text=Halo%2C+saya+tertarik+dengan+layanan+Go+Space%21&type=phone_number&app_absent=0"
+                }
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <span>Contact</span>
                 <GoArrowUpRight />
-              </Button>
-            </Link>
+              </Link>
+            </Button>
           </div>
         </motion.nav>
       )}
@@ -161,19 +168,21 @@ export const Navbar = () => {
                   Mode {theme === "dark" ? <HiMoon /> : <MdSunny />}
                 </Button>
 
-                <Link
-                  href={
-                    "https://api.whatsapp.com/send/?phone=628871510044&text=Halo%2C+saya+tertarik+dengan+layanan+Go+Space%21&type=phone_number&app_absent=0"
-                  }
-                  target="_blank"
+                <Button
+                  asChild
+                  variant="ghost"
+                  className="text-neutral-900 w-full rounded-full flex justify-between"
                 >
-                  <Button
-                    variant="ghost"
-                    className="text-neutral-900 w-full rounded-full flex justify-between"
+                  <Link
+                    href={
+                      "https://api.whatsapp.com/send/?phone=628871510044&text=Halo%2C+saya+tertarik+dengan+layanan+Go+Space%21&type=phone_number&app_absent=0"
+                    }
+                    target="_blank"
+                    rel="noopener noreferrer"
                   >
                     Contact <GoArrowUpRight />
-                  </Button>
-                </Link>
+                  </Link>
+                </Button>
               </motion.div>
             )}
           </AnimatePresence>
@@ -227,7 +236,7 @@ export const Navbar = () => {
 };
 
 const NavIcon = ({ href, icon, active }) => (
-  <a
+  <Link
     href={href}
     className={`
       w-11 h-11 flex items-center justify-center rounded-full text-xl transition
@@ -239,5 +248,5 @@ const NavIcon = ({ href, icon, active }) => (
     `}
   >
     {icon}
-  </a>
+  </Link>
 );

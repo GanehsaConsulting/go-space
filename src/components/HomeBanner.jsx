@@ -53,10 +53,12 @@ export const HomeBanner = () => {
           {" "}
           <div className="flex items-center gap-4 pe-3 bg-inherit sm:rounded-out-tr-[40px] rounded-out-tr-[30px]">
             {" "}
-            <img
+            <Image
               src="/assets/go-logo.png"
               alt="go space logo"
-              className="h-12 dark:brightness-1000 "
+              width={100}
+              height={48}
+              className="h-12 w-auto dark:brightness-1000 "
             />{" "}
             <p className="dark:text-white sm:block hidden text-[11px] text-purple-800 font-semibold">
               {" "}
@@ -73,10 +75,10 @@ export const HomeBanner = () => {
           className="absolute left-0 right-0 top-0 bg-linear-to-b from-black/70 via-black/50 to-transparent z-5 py-5"
         >
           <div className="text-white font-semibold hidden sm:flex justify-center gap-6 md:gap-17 text-sm md:text-xl">
-            <a href="/#home">Home</a>
-            <a href="/#spaces">Spaces</a>
-            <a href="/#pricing">Pricing</a>
-            <a href="/#faq">Faq</a>
+            <Link href="/#home">Home</Link>
+            <Link href="/#spaces">Spaces</Link>
+            <Link href="/#pricing">Pricing</Link>
+            <Link href="/#faq">Faq</Link>
           </div>
         </motion.div>
 
@@ -84,16 +86,18 @@ export const HomeBanner = () => {
         <div className="z-200 w-62.5 h-17 bg-white dark:bg-black hidden sm:absolute right-0 top-0 ps-3 pb-3 pt-2 rounded-bl-[40px] rounded-out-rb-[40px] sm:flex justify-end items-center">
           {" "}
           <div className="flex items-center bg-inherit rounded-out-tl-[40px] space-x-2 w-full">
-            <Link
-              target="_blank"
-              href="https://api.whatsapp.com/send/?phone=628871510044&text=Halo%2C+saya+tertarik+dengan+layanan+Go+Space%21&type=phone_number&app_absent=0"
+            <Button
+              asChild
+              className={`rounded-full py-6 text-[1rem] ${bgNeutralGradientReverse} transition-colors duration-500 px-4 flex items-center space-x-2 `}
             >
-              <Button
-                className={`rounded-full py-6 text-[1rem] ${bgNeutralGradientReverse} transition-colors duration-500 px-4 flex items-center space-x-2 `}
+              <Link
+                target="_blank"
+                rel="noopener noreferrer"
+                href="https://api.whatsapp.com/send/?phone=628871510044&text=Halo%2C+saya+tertarik+dengan+layanan+Go+Space%21&type=phone_number&app_absent=0"
               >
                 connect with us
-              </Button>
-            </Link>
+              </Link>
+            </Button>
             <Button
               onClick={() =>
                 setTheme(!theme || theme === "light" ? "dark" : "light")

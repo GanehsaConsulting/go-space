@@ -134,14 +134,12 @@ export const Services = () => {
       </div>
 
       <div className="flex items-center justify-center mt-5">
-        <Link href="https://www.ganeshaconsulting.co.id" target="_blank">
-          <ArrowButton
-            isAnchor
-            label="Lihat layanan lainnya"
-            path="https://www.ganeshaconsulting.co.id"
-            variant="dark"
-          />
-        </Link>
+        <ArrowButton
+          isAnchor
+          label="Lihat layanan lainnya"
+          path="https://www.ganeshaconsulting.co.id"
+          variant="dark"
+        />
       </div>
     </section>
   );
