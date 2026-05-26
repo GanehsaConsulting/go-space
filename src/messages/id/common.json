@@ -1,0 +1,31 @@
+{
+  "common": {
+    "brandSubtitle": "Virtual Office\nBy Ganesha Consulting",
+    "contact": "Contact",
+    "mode": "Mode",
+    "language": "Bahasa"
+  },
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "service": "Service",
+    "blog": "Blog",
+    "spaces": "Spaces",
+    "pricing": "Pricing",
+    "faq": "Faq"
+  },
+  "footer": {
+    "company": "PT Ganesha Multi Kreatif",
+    "description": "Go Space by Ganesha Consulting. Alamat bisnis strategis, kredibilitas naik, biaya operasional lebih hemat.",
+    "page": "Page",
+    "contact": "Contact",
+    "location": "Location",
+    "whatsapp": "WhatsApp",
+    "email": "Email",
+    "instagram": "Instagram"
+  },
+  "modals": {
+    "bookNow": "Book Now",
+    "openInstagram": "Open on Instagram"
+  }
+}

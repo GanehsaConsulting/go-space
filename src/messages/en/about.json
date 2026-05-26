@@ -1,0 +1,88 @@
+{
+  "about": {
+    "metadata": {
+      "title": "About Us",
+      "description": "Get to know Go Space, a strategic virtual office and meeting room provider in South Jakarta by Ganesha Consulting."
+    },
+    "hero": {
+      "stats": [
+        {
+          "value": "South Jakarta",
+          "label": "Strategic business address"
+        },
+        {
+          "value": "Legal Support",
+          "label": "Support for company needs"
+        },
+        {
+          "value": "Flexible",
+          "label": "Ready-to-use meeting rooms and offices"
+        }
+      ],
+      "pricing": "View Packages",
+      "location": "Mampang, South Jakarta",
+      "title": "A business space that helps your company look more ready.",
+      "description": "Go Space helps founders, small teams, and growing companies get a professional business address, representative meeting rooms, and operational support without heavy office costs.",
+      "consult": "Consult Now",
+      "explore": "Explore Spaces"
+    },
+    "story": {
+      "title": "About Go Space",
+      "description": "We build flexible workspaces for businesses that want to look professional without losing efficiency.",
+      "eyebrow": "Built for growing teams",
+      "headline": "From business address to meeting rooms, everything is made practical.",
+      "cards": [
+        {
+          "title": "Professional Business Address",
+          "desc": "Build credibility from the start, especially for legal, branding, and business communication needs."
+        },
+        {
+          "title": "Ready-to-Use Meeting Rooms",
+          "desc": "A place to meet clients, present, interview, or work with focus without renting a permanent office."
+        },
+        {
+          "title": "Support from Ganesha Consulting",
+          "desc": "Go Space is part of a legal and business service ecosystem, so your business needs can be guided more clearly."
+        }
+      ]
+    },
+    "values": {
+      "title": "What We Stand For",
+      "description": "Values that keep Go Space practical, professional, and relevant for modern businesses.",
+      "items": [
+        {
+          "title": "Professional Presence",
+          "desc": "Helping businesses build a neat, credible, and trustworthy image."
+        },
+        {
+          "title": "Efficient Growth",
+          "desc": "Focusing on essential needs so operational costs stay lean as the business grows."
+        },
+        {
+          "title": "Reliable Support",
+          "desc": "Services are designed to be clear, responsive, and easy to use for daily business needs."
+        },
+        {
+          "title": "Business Friendly",
+          "desc": "Our approach is simple: comfortable facilities, easy processes, and human communication."
+        }
+      ]
+    },
+    "experience": {
+      "title": "More than a virtual address.",
+      "description": "We want Go Space to feel like an operational partner: a place where your business looks professional, your team can meet when needed, and business owners still have room to move efficiently.",
+      "highlights": [
+        "Strategic address in South Jakarta business area",
+        "Meeting rooms for presentations, discussions, and client needs",
+        "Business service ecosystem with Ganesha Consulting",
+        "Flexible package options for growing businesses"
+      ]
+    },
+    "cta": {
+      "eyebrow": "Ready when you are",
+      "title": "Ready to get a more professional business address?",
+      "description": "Tell us what your business needs, and we will help recommend the most suitable Go Space package.",
+      "button": "Chat WhatsApp"
+    }
+  }
+}

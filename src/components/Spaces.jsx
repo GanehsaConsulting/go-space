@@ -3,17 +3,13 @@
 import React, { useState, useEffect } from "react";
 import { GoArrowUpRight } from "react-icons/go";
 import { IoEyeSharp } from "react-icons/io5";
+import { useTranslations } from "next-intl";
 import { HeaderSection } from "./common/HeaderSection";
-import Link from "next/link";
-import { Button } from "./ui/button";
 import { ArrowButton } from "./common/ArrowButton";
 import SpaceGallery from "./modals/SpaceGallery";
 
 const spaces = [
   {
-    title: "Exclusive Office",
-    description:
-      "Ruang kantor premium dengan fasilitas lengkap dan desain modern. Memberikan kenyamanan sekaligus prestise untuk mendukung bisnis Anda.",
     capacity: 12,
     image: "/assets/banner-image-main.jpg",
     gallery: [
@@ -23,9 +19,6 @@ const spaces = [
     ],
   },
   {
-    title: "Private Office",
-    description:
-      "Nikmati privasi penuh di ruang kantor eksklusif untuk tim atau individu. Cocok untuk rapat penting, fokus kerja, atau kebutuhan harian tanpa distraksi.",
     capacity: 6,
     image: "/assets/spaces/room-6-3.png",
     gallery: [
@@ -35,9 +28,6 @@ const spaces = [
     ],
   },
   {
-    title: "Smoking Office",
-    description:
-      "Ruang kerja khusus dengan area smoking-friendly. Tetap produktif sambil menikmati suasana santai tanpa mengganggu rekan kerja lainnya.",
     capacity: 6,
     image: "/assets/spaces/room-6s-2.png",
     gallery: [
@@ -49,6 +39,11 @@ const spaces = [
 ];
 
 export const Spaces = () => {
+  const t = useTranslations("spaces");
+  const localizedSpaces = spaces.map((space, index) => ({
+    ...space,
+    ...t.raw("items")[index],
+  }));
   const [hoveredIndex, setHoveredIndex] = useState(null);
   const [activeSpace, setActiveSpace] = useState(null);
   const [isMobile, setIsMobile] = useState(false);
@@ -76,8 +71,8 @@ export const Spaces = () => {
     <section id="spaces" className=" px-0 sm:px-24 sm:py-12  relative">
       <div className="max-w-7xl mx-auto">
         <HeaderSection
-          title="Explore Spaces"
-          desc="Go Space by Ganesha Consulting. Alamat bisnis strategis, kredibilitas naik, biaya operasional lebih hemat."
+          title={t("title")}
+          desc={t("description")}
           className={"px-8 sm:px-0 pt-12 sm:py-0"}
         />
 
@@ -90,7 +85,7 @@ export const Spaces = () => {
             pb-4 md:pb-0 px-8 sm:px-0 hide-scrollbar
           "
         >
-          {spaces.map((space, index) => (
+          {localizedSpaces.map((space, index) => (
             <div
               key={index}
               className={`
@@ -139,12 +134,12 @@ export const Spaces = () => {
                   <div className="flex items-center gap-2 mb-4">
                     <IoEyeSharp className="text-white/80" />
                     <span className="text-xs md:text-sm text-white/80">
-                      Capacity {space.capacity}
+                      {t("capacity")} {space.capacity}
                     </span>
                   </div>
 
                   <ArrowButton
-                    label={"Explore Spaces"}
+                    label={t("cta")}
                     onClick={(e) => {
                       e.stopPropagation();
                       setActiveSpace(space);

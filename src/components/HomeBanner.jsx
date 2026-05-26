@@ -1,21 +1,23 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { IoClose } from "react-icons/io5";
+import { Fragment, useState, useEffect } from "react";
 import Image from "next/image";
 import { Button } from "./ui/button";
-import { GoArrowUpRight } from "react-icons/go";
-import { IoMdMoon } from "react-icons/io";
 import { AnimatePresence, motion } from "framer-motion";
-import Link from "next/link";
-import { useTheme } from "next-themes";
+import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/routing";
+import { useTheme } from "./common/ThemeProvider";
 import { HiMoon } from "react-icons/hi";
 import { MdSunny } from "react-icons/md";
 import { ArrowButton } from "./common/ArrowButton";
+import { LocaleSwitcher } from "./common/LocaleSwitcher";
 import { bgNeutralGradientReverse } from "@/lib/reuseClass";
 import VOTour from "./modals/VOTour";
 
 export const HomeBanner = () => {
+  const t = useTranslations("homeBanner");
+  const common = useTranslations("common");
+  const nav = useTranslations("nav");
   const { theme, setTheme } = useTheme();
   const [openVideo, setOpenVideo] = useState(false);
 
@@ -62,7 +64,14 @@ export const HomeBanner = () => {
             />{" "}
             <p className="dark:text-white sm:block hidden text-[11px] text-purple-800 font-semibold">
               {" "}
-              Virtual Office <br /> By Ganesha Consulting{" "}
+              {common("brandSubtitle")
+                .split("\n")
+                .map((line) => (
+                  <Fragment key={line}>
+                    {line}
+                    <br />
+                  </Fragment>
+                ))}
             </p>{" "}
           </div>{" "}
         </div>
@@ -74,11 +83,14 @@ export const HomeBanner = () => {
           transition={{ delay: 0.5 }}
           className="absolute left-0 right-0 top-0 bg-linear-to-b from-black/70 via-black/50 to-transparent z-5 py-5"
         >
-          <div className="text-white font-semibold hidden sm:flex justify-center gap-6 md:gap-17 text-sm md:text-xl">
-            <Link href="/#home">Home</Link>
-            <Link href="/#spaces">Spaces</Link>
-            <Link href="/#pricing">Pricing</Link>
-            <Link href="/#faq">Faq</Link>
+          <div className="text-white font-semibold hidden sm:flex justify-center gap-5 md:gap-10 lg:gap-14 text-sm md:text-lg lg:text-xl">
+            <Link href="/#home">{nav("home")}</Link>
+            <Link href="/about">{nav("about")}</Link>
+            <Link href="/service">{nav("service")}</Link>
+            <Link href="/blog">{nav("blog")}</Link>
+            <Link href="/#spaces">{nav("spaces")}</Link>
+            <Link href="/#pricing">{nav("pricing")}</Link>
+            <Link href="/#faq">{nav("faq")}</Link>
           </div>
         </motion.div>
 
@@ -95,7 +107,7 @@ export const HomeBanner = () => {
                 rel="noopener noreferrer"
                 href="https://api.whatsapp.com/send/?phone=628871510044&text=Halo%2C+saya+tertarik+dengan+layanan+Go+Space%21&type=phone_number&app_absent=0"
               >
-                connect with us
+                {t("cta")}
               </Link>
             </Button>
             <Button
@@ -125,11 +137,10 @@ export const HomeBanner = () => {
               transition={{ delay: 0.8 }}
             >
               <h1 className="text-[2.5rem] md:text-[4rem] font-semibold text-white  leading-tight ">
-                Work Better, Together.
+                {t("title")}
               </h1>
               <p className="text-white/80  max-w-xl text-sm font-semibold mt-2">
-                Go Space membantu bisnis tampil profesional dengan alamat kantor
-                virtual strategis untuk legalitas, branding, dan operasional.
+                {t("description")}
               </p>
             </motion.div>
 
@@ -140,7 +151,7 @@ export const HomeBanner = () => {
               className="z-10"
             >
               <ArrowButton
-                label={"Office Tour"}
+                label={t("officeTour")}
                 onClick={() => setOpenVideo(true)}
                 variant={"basic"}
               />

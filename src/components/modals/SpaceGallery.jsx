@@ -2,9 +2,12 @@
 
 import { createPortal } from "react-dom";
 import { GoArrowUpRight } from "react-icons/go";
-import Link from "next/link";
+import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/routing";
 
 export default function SpaceGallery({ space, onClose }) {
+  const t = useTranslations("modals");
+
   if (!space || typeof window === "undefined") return null;
 
   return createPortal(
@@ -51,7 +54,7 @@ export default function SpaceGallery({ space, onClose }) {
             target="_blank"
             className="bg-white/70 backdrop-blur-md rounded-full py-2 ps-4 pe-2 flex items-center justify-between w-full hover:shadow-[0_0_25px_rgba(255,255,255,0.6)] transition"
           >
-            <span className="font-semibold text-neutral-900">Book Now</span>
+            <span className="font-semibold text-neutral-900">{t("bookNow")}</span>
             <span className="bg-neutral-900 text-white rounded-full p-2">
               <GoArrowUpRight />
             </span>

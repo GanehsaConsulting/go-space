@@ -1,0 +1,171 @@
+{
+  "servicePage": {
+    "metadata": {
+      "title": "Services",
+      "description": "Layanan pendukung bisnis dari Go Space dan Ganesha Consulting."
+    },
+    "hero": {
+      "eyebrow": "Business support services",
+      "title": "Layanan yang bantu bisnis Anda mulai dan bertumbuh lebih rapi.",
+      "description": "Dari legalitas perusahaan sampai kebutuhan website, Go Space menghubungkan bisnis Anda dengan layanan pendukung dari ekosistem Ganesha Consulting.",
+      "cta": "Konsultasi layanan"
+    },
+    "sections": {
+      "title": "Pilih Layanan",
+      "description": "Mulai dari kebutuhan legalitas dasar sampai digital presence untuk bisnis yang sedang berkembang.",
+      "learnMore": "Lihat detail"
+    },
+    "detail": {
+      "back": "Kembali ke semua layanan",
+      "overview": "Overview",
+      "benefits": "Yang Anda dapatkan",
+      "process": "Alur pengerjaan",
+      "ctaTitle": "Butuh bantuan memilih layanan?",
+      "ctaDescription": "Ceritakan kondisi bisnis Anda, kami bantu arahkan layanan yang paling sesuai.",
+      "cta": "Chat WhatsApp",
+      "external": "Buka halaman Ganesha Consulting"
+    },
+    "items": [
+      {
+        "slug": "virtual-office",
+        "title": "Virtual Office Go Space",
+        "shortDescription": "Alamat bisnis strategis di Mampang, Jakarta Selatan untuk legalitas, kredibilitas, dan operasional yang lebih efisien.",
+        "description": "Virtual Office Go Space membantu bisnis memiliki alamat profesional tanpa biaya kantor fisik besar, lengkap dengan dukungan ruang meeting dan ekosistem legalitas Ganesha Consulting.",
+        "benefits": [
+          "Alamat bisnis strategis untuk legalitas dan branding",
+          "Biaya operasional lebih efisien dibanding kantor fisik",
+          "Akses ruang meeting untuk kebutuhan profesional",
+          "Dukungan layanan legalitas bila bisnis belum memiliki badan usaha"
+        ],
+        "process": [
+          "Konsultasi kebutuhan alamat bisnis dan legalitas",
+          "Pilih paket virtual office yang sesuai",
+          "Lengkapi data dan dokumen administrasi",
+          "Alamat bisnis siap digunakan untuk operasional"
+        ]
+      },
+      {
+        "slug": "pendirian-pt",
+        "title": "Pendirian PT",
+        "shortDescription": "Layanan pendirian Perseroan Terbatas untuk bisnis yang ingin punya badan hukum lebih kuat dan kredibel.",
+        "description": "Pendirian PT cocok untuk bisnis yang ingin membangun kredibilitas, memisahkan tanggung jawab pribadi dan perusahaan, serta menyiapkan struktur legal yang lebih siap untuk kerja sama, tender, dan ekspansi.",
+        "benefits": [
+          "Konsultasi kebutuhan pendirian badan usaha",
+          "Pendampingan dokumen dan persyaratan dasar",
+          "Arahan legalitas agar sesuai kebutuhan operasional",
+          "Dukungan alamat bisnis melalui Go Space bila dibutuhkan"
+        ],
+        "process": [
+          "Diskusi kebutuhan bisnis dan struktur pemegang saham",
+          "Persiapan data serta dokumen pendukung",
+          "Proses pendirian dan legalitas bersama tim Ganesha Consulting",
+          "Serah terima dokumen dan arahan penggunaan legalitas"
+        ]
+      },
+      {
+        "slug": "pendirian-cv",
+        "title": "Pendirian CV",
+        "shortDescription": "Solusi pendirian CV untuk usaha yang ingin mulai lebih formal dengan proses yang relatif sederhana.",
+        "description": "CV cocok untuk usaha jasa, dagang, atau bisnis keluarga yang ingin punya identitas usaha lebih resmi, tetap efisien, dan mudah digunakan untuk kebutuhan administrasi bisnis.",
+        "benefits": [
+          "Konsultasi bentuk usaha dan kebutuhan dokumen",
+          "Pendampingan data sekutu aktif dan pasif",
+          "Proses legalitas yang lebih sederhana untuk usaha awal",
+          "Dukungan alamat bisnis bila diperlukan"
+        ],
+        "process": [
+          "Konsultasi kebutuhan dan nama usaha",
+          "Pengumpulan data para sekutu",
+          "Pengurusan akta dan dokumen legalitas",
+          "Finalisasi dokumen untuk kebutuhan operasional"
+        ]
+      },
+      {
+        "slug": "web-development",
+        "title": "Website Development",
+        "shortDescription": "Pembuatan website profesional untuk memperkuat branding, kredibilitas, dan konversi bisnis.",
+        "description": "Website membantu bisnis terlihat lebih terpercaya, mudah ditemukan, dan punya kanal resmi untuk menjelaskan layanan, portfolio, serta kontak kepada calon pelanggan.",
+        "benefits": [
+          "Struktur halaman sesuai kebutuhan bisnis",
+          "Desain responsif untuk desktop dan mobile",
+          "Copy dan layout yang mendukung kredibilitas",
+          "Integrasi CTA menuju WhatsApp atau form kontak"
+        ],
+        "process": [
+          "Brief kebutuhan bisnis dan target audience",
+          "Penyusunan struktur halaman serta konten utama",
+          "Desain dan development website",
+          "Review, revisi, lalu publikasi"
+        ]
+      }
+    ],
+    "virtualOffice": {
+      "back": "Kembali ke semua layanan",
+      "eyebrow": "Virtual Office Go Space",
+      "title": "Alamat bisnis strategis tanpa beban kantor fisik.",
+      "description": "Bangun kredibilitas bisnis dengan alamat profesional di Mampang, Jakarta Selatan. Cocok untuk startup, UMKM, konsultan, dan bisnis yang ingin terlihat lebih matang sejak hari pertama.",
+      "primaryCta": "Konsultasi Virtual Office",
+      "secondaryCta": "Lihat ruang meeting",
+      "stats": [
+        {
+          "value": "Jakarta Selatan",
+          "label": "Alamat strategis untuk bisnis"
+        },
+        {
+          "value": "Meeting Room",
+          "label": "Ruang meeting siap digunakan"
+        },
+        {
+          "value": "Legal Support",
+          "label": "Terhubung dengan Ganesha Consulting"
+        }
+      ],
+      "overviewTitle": "Untuk bisnis yang butuh alamat profesional, bukan kantor mahal.",
+      "overviewDescription": "Virtual Office Go Space dirancang untuk membantu bisnis tetap terlihat kredibel, legalitas lebih rapi, dan operasional lebih efisien. Anda bisa menggunakan alamat bisnis strategis sambil tetap bekerja fleksibel dari mana saja.",
+      "benefitsTitle": "Kenapa memilih Virtual Office Go Space?",
+      "benefits": [
+        {
+          "title": "Alamat bisnis kredibel",
+          "description": "Gunakan alamat strategis untuk legalitas, branding, kartu nama, website, dan kebutuhan komunikasi bisnis."
+        },
+        {
+          "title": "Lebih hemat biaya",
+          "description": "Kurangi beban sewa kantor fisik, maintenance, dan biaya operasional rutin tanpa mengorbankan profesionalitas."
+        },
+        {
+          "title": "Ruang meeting tersedia",
+          "description": "Saat perlu bertemu klien atau tim, gunakan ruang meeting yang nyaman dan mendukung kebutuhan presentasi."
+        },
+        {
+          "title": "Dukungan legalitas",
+          "description": "Jika bisnis belum punya PT atau CV, tim Ganesha Consulting dapat membantu proses legalitasnya."
+        }
+      ],
+      "featuresTitle": "Fasilitas dan kebutuhan yang didukung",
+      "features": [
+        "Alamat bisnis untuk legalitas perusahaan",
+        "Domisili bisnis yang lebih profesional",
+        "Ruang meeting untuk presentasi dan diskusi",
+        "Dukungan konsultasi pendirian usaha",
+        "Cocok untuk remote team dan bisnis hybrid",
+        "Akses ekosistem layanan bisnis Ganesha Consulting"
+      ],
+      "idealTitle": "Cocok untuk",
+      "idealFor": [
+        "Founder yang baru memulai bisnis",
+        "UMKM yang ingin naik kelas",
+        "Konsultan dan agency",
+        "Remote team yang butuh alamat resmi"
+      ],
+      "processTitle": "Mulai menggunakan Virtual Office",
+      "process": [
+        "Konsultasikan kebutuhan bisnis",
+        "Pilih paket dan durasi layanan",
+        "Lengkapi data administrasi",
+        "Alamat siap digunakan"
+      ],
+      "ctaTitle": "Siap punya alamat bisnis yang lebih profesional?",
+      "ctaDescription": "Chat tim Go Space untuk konsultasi paket Virtual Office yang paling sesuai dengan kebutuhan bisnis Anda."
+    }
+  }
+}

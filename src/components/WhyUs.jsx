@@ -1,13 +1,18 @@
 "use client"
 
 import { useRef } from "react";
+import { useTranslations } from "next-intl";
 import { MdKeyboardArrowRight, MdKeyboardArrowLeft } from "react-icons/md";
 import { WhyUsData } from "../../public/data/WhyUsData";
-import { bgMainDarkGradient, bgNeutralGradient } from "@/lib/reuseClass";
+import { bgMainDarkGradient } from "@/lib/reuseClass";
 
 export const WhyUs = () => {
+  const t = useTranslations("whyUs");
   const scrollRef = useRef(null);
-  const data = WhyUsData;
+  const items = t.raw("items").map((item, index) => ({
+    ...item,
+    icon: WhyUsData[index].icon,
+  }));
  
   const scrollLeft = () => {
     scrollRef.current.scrollBy({
@@ -29,11 +34,10 @@ export const WhyUs = () => {
       <div className="px-0 md:px-24 flex flex-col md:flex-row justify-between items-start md:items-center mb-12 gap-6">
         <div className="px-8 sm:px-0" >
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            Why Choose Us?
+            {t("title")}
           </h2>
           <p className="text-gray-600 dark:text-gray-300 max-w-md">
-            Discover why Go Space stands out as the premier virtual office
-            provider.
+            {t("description")}
           </p>
         </div>
 
@@ -59,7 +63,7 @@ export const WhyUs = () => {
         ref={scrollRef}
         className="flex gap-4 px-8 sm:px-24 overflow-x-auto scroll-smooth  scrollbar-hide hide-scrollbar    "
       >
-        {data.map((item, index) => (
+        {items.map((item, index) => (
           <div
             key={index}
             className={`relative overflow-hidden snap-start min-w-60 h-80  p-5 rounded-2xl flex flex-col justify-between group transition duration-800 cursor-pointer drop-shadow-destructive ${bgMainDarkGradient}`}

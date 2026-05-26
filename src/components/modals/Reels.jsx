@@ -2,9 +2,11 @@
 
 import { useEffect } from "react";
 import { createPortal } from "react-dom";
+import { useTranslations } from "next-intl";
 import { ArrowButton } from "../common/ArrowButton";
 
 export const Reels = ({ open, video, onClose }) => {
+  const t = useTranslations("modals");
   // esc close
   useEffect(() => {
     if (!open) return;
@@ -45,7 +47,7 @@ export const Reels = ({ open, video, onClose }) => {
 
         <div className="w-full flex justify-center items-center mt-5">
           <ArrowButton
-            label={"Open on instagram"}
+            label={t("openInstagram")}
             isAnchor={true}
             path={video.igUrl}
             variant={"dark"}

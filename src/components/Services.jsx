@@ -1,35 +1,27 @@
 import React from "react";
+import { useTranslations } from "next-intl";
 import { HeaderSection } from "./common/HeaderSection";
 import Image from "next/image";
 import { FiArrowUpRight } from "react-icons/fi";
-import Link from "next/link";
+import { Link } from "@/i18n/routing";
 import { bgMainDarkGradient } from "@/lib/reuseClass";
 import { ArrowButton } from "./common/ArrowButton";
+import { serviceAssets, serviceSlugs } from "@/lib/services";
 
-const ServicesData = [
-  {
-    title: "Pendirian PT",
-    imageSrc: "/assets/illustrations/pendirian-pt.svg",
-    path: "https://www.ganeshaconsulting.co.id/pendirian-pt"
-  },
-  {
-    title: "Pendirian CV",
-    imageSrc: "/assets/illustrations/pendirian-cv.svg",
-    path: "https://www.ganeshaconsulting.co.id/pendirian-cv"
-  },
-  {
-    title: "Website Development",
-    imageSrc: "/assets/illustrations/website.svg",
-    path: "https://www.ganeshaconsulting.co.id/web-development"
-  },
-];
+const servicesData = serviceSlugs.map((slug) => ({
+  slug,
+  imageSrc: serviceAssets[slug].imageSrc,
+}));
 
 export const Services = () => {
+  const t = useTranslations("services");
+  const serviceTitles = t.raw("items");
+
   return (
     <section className="margin">
       <HeaderSection
-        title="Our Services"
-        desc="Go Space by Ganesha Consulting menyediakan layanan legalitas dan lainnya untuk mendukung bisnis Anda."
+        title={t("title")}
+        desc={t("description")}
       />
 
       <div
@@ -38,11 +30,10 @@ export const Services = () => {
         gap-4 sm:gap-6 md:gap-7
       "
       >
-        {ServicesData.map((service, index) => (
+        {servicesData.map((service, index) => (
           <Link
           key={index}
-          href={service?.path}
-          target="_blank"
+          href={`/service/${service.slug}`}
           className={`
     relative overflow-hidden
     rounded-2xl cursor-pointer group
@@ -104,7 +95,7 @@ export const Services = () => {
                   src={service.imageSrc}
                   width={250}
                   height={250}
-                  alt={service.title}
+                  alt={serviceTitles[index]}
                   className="
                     rounded-lg mb-4
                     duration-300
@@ -125,7 +116,7 @@ export const Services = () => {
                   text-center md:text-start
                 "
                 >
-                  {service.title}
+                  {serviceTitles[index]}
                 </h3>
               </div>
             </div>
@@ -136,8 +127,9 @@ export const Services = () => {
       <div className="flex items-center justify-center mt-5">
         <ArrowButton
           isAnchor
-          label="Lihat layanan lainnya"
-          path="https://www.ganeshaconsulting.co.id"
+          label={t("more")}
+          path="/service"
+          target="_self"
           variant="dark"
         />
       </div>

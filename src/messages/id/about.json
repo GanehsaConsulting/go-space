@@ -1,0 +1,88 @@
+{
+  "about": {
+    "metadata": {
+      "title": "About Us",
+      "description": "Kenali Go Space, virtual office dan ruang meeting strategis di Jakarta Selatan by Ganesha Consulting."
+    },
+    "hero": {
+      "stats": [
+        {
+          "value": "Jakarta Selatan",
+          "label": "Alamat bisnis strategis"
+        },
+        {
+          "value": "Legalitas",
+          "label": "Dukungan kebutuhan perusahaan"
+        },
+        {
+          "value": "Flexible",
+          "label": "Ruang meeting dan office siap pakai"
+        }
+      ],
+      "pricing": "Lihat Paket",
+      "location": "Mampang, Jakarta Selatan",
+      "title": "Ruang bisnis yang bikin perusahaan terlihat lebih siap.",
+      "description": "Go Space membantu founder, tim kecil, dan perusahaan berkembang punya alamat bisnis profesional, ruang meeting representatif, dan dukungan operasional tanpa biaya kantor yang berat.",
+      "consult": "Konsultasi Sekarang",
+      "explore": "Explore Spaces"
+    },
+    "story": {
+      "title": "About Go Space",
+      "description": "Kami membangun ruang kerja fleksibel untuk bisnis yang ingin terlihat profesional tanpa kehilangan efisiensi.",
+      "eyebrow": "Built for growing teams",
+      "headline": "Dari alamat bisnis sampai ruang meeting, semuanya dibuat praktis.",
+      "cards": [
+        {
+          "title": "Alamat Bisnis Profesional",
+          "desc": "Memberikan kredibilitas sejak awal, terutama untuk kebutuhan legalitas, branding, dan komunikasi bisnis."
+        },
+        {
+          "title": "Ruang Meeting Siap Pakai",
+          "desc": "Tempat bertemu klien, presentasi, interview, atau kerja fokus tanpa harus menyewa kantor permanen."
+        },
+        {
+          "title": "Support dari Ganesha Consulting",
+          "desc": "Go Space berada dalam ekosistem layanan legalitas dan bisnis, jadi kebutuhan usaha bisa dibantu lebih terarah."
+        }
+      ]
+    },
+    "values": {
+      "title": "What We Stand For",
+      "description": "Nilai yang menjaga Go Space tetap praktis, profesional, dan relevan untuk pelaku bisnis modern.",
+      "items": [
+        {
+          "title": "Professional Presence",
+          "desc": "Membantu bisnis punya citra yang rapi, kredibel, dan mudah dipercaya klien."
+        },
+        {
+          "title": "Efficient Growth",
+          "desc": "Fokus pada kebutuhan penting agar biaya operasional tetap ringan saat bisnis bertumbuh."
+        },
+        {
+          "title": "Reliable Support",
+          "desc": "Layanan dibuat jelas, responsif, dan mudah digunakan untuk kebutuhan harian bisnis."
+        },
+        {
+          "title": "Business Friendly",
+          "desc": "Pendekatan kami sederhana: fasilitas nyaman, proses mudah, dan komunikasi manusiawi."
+        }
+      ]
+    },
+    "experience": {
+      "title": "More than a virtual address.",
+      "description": "Kami ingin Go Space terasa seperti partner operasional: tempat bisnis terlihat profesional, tim bisa bertemu saat dibutuhkan, dan pemilik usaha tetap punya ruang untuk bergerak efisien.",
+      "highlights": [
+        "Alamat strategis di area bisnis Jakarta Selatan",
+        "Meeting room untuk presentasi, diskusi, dan kebutuhan klien",
+        "Ekosistem layanan bisnis bersama Ganesha Consulting",
+        "Pilihan paket fleksibel untuk usaha yang sedang berkembang"
+      ]
+    },
+    "cta": {
+      "eyebrow": "Ready when you are",
+      "title": "Siap punya alamat bisnis yang lebih profesional?",
+      "description": "Ceritakan kebutuhan bisnis Anda, kami bantu arahkan paket Go Space yang paling sesuai.",
+      "button": "Chat WhatsApp"
+    }
+  }
+}

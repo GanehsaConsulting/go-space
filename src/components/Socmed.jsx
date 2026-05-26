@@ -1,31 +1,33 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import { useTranslations } from "next-intl";
 import { HeaderSection } from "./common/HeaderSection";
 import { FaInstagram } from "react-icons/fa6";
-import { ArrowButton } from "./common/ArrowButton";
 import { Button } from "./ui/button";
 import { Reels } from "./modals/Reels";
 
 const reelsVideo = [
   {
     src: "/assets/videos/go-space-nesya.mp4",
-    alt: "Go Space Trailer",
     igUrl: "https://www.instagram.com/reel/DOIuUSzkv4o",
   },
   {
     src: "/assets/videos/go-space-gilang.mp4",
-    alt: "Go Space Co Working Space",
     igUrl: "https://www.instagram.com/reel/DOKujxCEupr",
   },
   {
     src: "/assets/videos/go-space-gepoy.mp4",
-    alt: "Go Space Meeting Room",
     igUrl: "https://www.instagram.com/reel/DSe0wPSkkPZ",
   },
 ];
 
 export const Socmed = () => {
+  const t = useTranslations("socmed");
+  const videos = reelsVideo.map((video, index) => ({
+    ...video,
+    alt: t.raw("videos")[index],
+  }));
   const [selectedVideo, setSelectedVideo] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -54,15 +56,13 @@ export const Socmed = () => {
     <>
       <section className="margin">
         <HeaderSection
-          title={"Follow Us On IG"}
-          desc={
-            "Ikuti official instagram kami untuk mendapatkan update terbaru seputar Go Space"
-          }
+          title={t("title")}
+          desc={t("description")}
         />
 
         {/* GRID */}
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-          {reelsVideo.map((item, idx) => (
+          {videos.map((item, idx) => (
             <div
               key={idx}
               onClick={() => openModal(item)}
@@ -91,7 +91,7 @@ export const Socmed = () => {
         <div className="mt-11 flex justify-center" >
             <Button className={"rounded-full text-white bg-linear-to-tr py-6 px-5 text-sm from-[#FCD06A] via-[#DD2A7B] to-[#8034B0] "} >
                 <span> <FaInstagram/> </span>
-                <span>Follow on Instagram</span>
+                <span>{t("follow")}</span>
             </Button>
         </div>
       </section>

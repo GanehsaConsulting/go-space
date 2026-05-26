@@ -6,33 +6,32 @@ import { FcGoogle } from "react-icons/fc";
 import { RiChatSmile2Fill } from "react-icons/ri";
 import { HiVolumeUp, HiVolumeOff } from "react-icons/hi";
 import { FaPlay, FaPause } from "react-icons/fa";
+import { useTranslations } from "next-intl";
 import { HeaderSection } from "./common/HeaderSection";
-import { Button } from "./ui/button";
-import Link from "next/link";
+import { Link } from "@/i18n/routing";
 import { ArrowButton } from "./common/ArrowButton";
 
 const testimonials = [
   {
     rating: 5,
-    text: "Pelayanan nya ramah, harga nyaterjangkau, kuota jam ruang meetingnya banyak, sgt recommended👍",
-    name: "muhammad adji novantri",
     url: "https://maps.app.goo.gl/QmvBb6xQbYj4TpsL7",
   },
   {
     rating: 5,
-    text: "mantap meeting room nya ada yg smooking room, resepsionisnya juga ramah",
-    name: "Melia wati",
     url: "https://maps.app.goo.gl/HQYuzSY6EPXbGqs49",
   },
   {
     rating: 5,
-    text: "salah satu virtual office dengan harga paling affordable apalagi dengan lokasi nya yang strategis di mampang, jaksel. sangat recommended",
-    name: "M Faisal Ilham",
     url: "https://maps.app.goo.gl/SptHVgdVmrQadvnC8",
   },
 ];
 
 export function ClientReview() {
+  const t = useTranslations("clientReview");
+  const localizedTestimonials = testimonials.map((testimonial, index) => ({
+    ...testimonial,
+    ...t.raw("testimonials")[index],
+  }));
   const videoRef = useRef(null);
   const [isMuted, setIsMuted] = useState(true);
   const [isPlaying, setIsPlaying] = useState(true);
@@ -58,8 +57,8 @@ export function ClientReview() {
   return (
     <section className="margin">
       <HeaderSection
-        title="Client Reviews"
-        desc="Apa pendapat/testimoni dari mereka setelah memakai dan menggunakkan ruang meeting dari Go Space"
+        title={t("title")}
+        desc={t("description")}
       />
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
@@ -82,7 +81,7 @@ export function ClientReview() {
             <button
               onClick={togglePlay}
               className="bg-white/90 hover:bg-white p-3 rounded-full transition-all duration-200 shadow-lg"
-              aria-label={isPlaying ? "Pause video" : "Play video"}
+              aria-label={isPlaying ? t("pauseVideo") : t("playVideo")}
             >
               {isPlaying ? (
                 <FaPause className="text-neutral-800 text-sm" />
@@ -95,7 +94,7 @@ export function ClientReview() {
             <button
               onClick={toggleMute}
               className="bg-white/90 hover:bg-white p-3 rounded-full transition-all duration-200 shadow-lg"
-              aria-label={isMuted ? "Unmute video" : "Mute video"}
+              aria-label={isMuted ? t("unmuteVideo") : t("muteVideo")}
             >
               {isMuted ? (
                 <HiVolumeOff className="text-neutral-800 text-lg" />
@@ -108,7 +107,7 @@ export function ClientReview() {
 
         {/* Right side - Testimonials */}
         <div className="flex flex-col gap-6 relative">
-          {testimonials.map((testimonial, index) => (
+          {localizedTestimonials.map((testimonial, index) => (
             <div
               key={index}
               className="relative overflow-hidden bg-neutral-200 dark:bg-neutral-800 group hover:bg-blue-100 dark:hover:bg-blue-900 transition duration-300 rounded-t-3xl rounded-bl-2xl"
@@ -140,7 +139,7 @@ export function ClientReview() {
                   <div>
                     <p className="font-semibold text-xs">{testimonial.name}</p>
                     <p className="text-xs text-neutral-500 dark:text-gray-400">
-                      Review On Google Maps
+                      {t("googleMaps")}
                     </p>
                   </div>
                 </div>
@@ -166,8 +165,7 @@ export function ClientReview() {
       <div className="flex items-center justify-between text-neutral-700 dark:text-gray-200 mt-6">
         <div className="hidden sm:flex items-center gap-4 text-sm">
           <p>
-            Mayoritas klien puas setelah <br /> menggunakkan Ruang Meeting Go
-            Space
+            {t("summary")}
           </p>
           <RiChatSmile2Fill className="text-xl" />
           <div>
@@ -175,12 +173,12 @@ export function ClientReview() {
               <span className="text-yellow-500">★★★★★</span>
               <span>5.0</span>
             </div>
-            <div>Based on 17 Reviews</div>
+            <div>{t("basedOn")}</div>
           </div>
         </div>
         
         <ArrowButton
-          label={"View all reviews"}
+          label={t("viewAll")}
           isAnchor={true}
           path={
             "https://www.google.com/maps/place/GoSpace+Mampang/@-6.2556833,106.8279946,17z/data=!4m18!1m9!3m8!1s0x20f6bfe9853dcfa3:0x2ccb583ad9c6ca1b!2sGoSpace+Mampang!8m2!3d-6.2556833!4d106.8279946!9m1!1b1!16s%2Fg%2F11yhqv_71y!3m7!1s0x20f6bfe9853dcfa3:0x2ccb583ad9c6ca1b!8m2!3d-6.2556833!4d106.8279946!9m1!1b1!16s%2Fg%2F11yhqv_71y?entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoKLDEwMDc5MjA2OUgBUAM%3D"

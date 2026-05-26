@@ -1,6 +1,6 @@
 import React from "react";
 import { Button } from "../ui/button";
-import Link from "next/link";
+import { Link } from "@/i18n/routing";
 import { FiArrowUpRight } from "react-icons/fi";
 
 const IconAnimation = () => (
@@ -29,6 +29,7 @@ export const ArrowButton = ({
   label,
   isAnchor = false,
   path,
+  target = "_blank",
   className = "",
   onClick,
   variant = "light",
@@ -87,7 +88,11 @@ export const ArrowButton = ({
   if (isAnchor) {
     return (
       <Button asChild className={buttonStyle} {...props}>
-        <Link href={path} target="_blank" rel="noopener noreferrer">
+        <Link
+          href={path}
+          target={target}
+          rel={target === "_blank" ? "noopener noreferrer" : undefined}
+        >
           <div>{label}</div>
           <div className={iconStyle}>
             <IconAnimation />

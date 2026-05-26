@@ -5,11 +5,13 @@ import { Button } from "@/components/ui/button";
 import { MdOutlineEmail } from "react-icons/md";
 import { AiOutlineWhatsApp } from "react-icons/ai";
 import { FaCheck, FaInstagram } from "react-icons/fa6";
-import Link from "next/link";
+import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/routing";
 import { useState } from "react";
 import { ArrowButton } from "./common/ArrowButton";
 
 export const Contact = () => {
+  const t = useTranslations("contact");
   const [form, setForm] = useState({
     name: "",
     email: "",
@@ -43,11 +45,11 @@ export const Contact = () => {
         throw new Error(data.message || "Failed to send message");
       }
 
-      setSuccess("Message sent successfully! ✓");
+      setSuccess(t("success"));
       setForm({ name: "", email: "", message: "" });
     } catch (err) {
       console.error("Submit error:", err);
-      setError(err.message || "Failed to send message. Please try again.");
+      setError(err.message || t("error"));
     } finally {
       setLoading(false);
     }
@@ -59,33 +61,22 @@ export const Contact = () => {
         {/* ================= LEFT CONTENT ================= */}
         <div className="flex-1">
           <h2 className="text-4xl sm:text-5xl font-semibold tracking-tight">
-            Reach out <GoArrowUpRight className="inline-block mb-2" />
+            {t("title")} <GoArrowUpRight className="inline-block mb-2" />
           </h2>
 
           <p className="mt-6 text-neutral-600 dark:text-gray-50 max-w-md leading-relaxed">
-            Have a question or need assistance? Reach out to our dedicated
-            support team. We&apos;re here to help with any inquiries you may have.
+            {t("description")}
           </p>
 
           <ul className="mt-8 space-y-4 text-sm text-neutral-900 dark:text-white">
-            <li className="flex items-center gap-3">
-              <span className="p-2 border border-black/30 bg-neutral-100 dark:bg-neutral-800 shadow rounded-md">
-                <FaCheck />
-              </span>
-              Personalized assistance
-            </li>
-            <li className="flex items-center gap-3">
-              <span className="p-2 border border-black/30 bg-neutral-100 dark:bg-neutral-800 shadow rounded-md">
-                <FaCheck />
-              </span>
-              Timely response
-            </li>
-            <li className="flex items-center gap-3">
-              <span className="p-2 border border-black/30 bg-neutral-100 dark:bg-neutral-800 shadow rounded-md">
-                <FaCheck />
-              </span>
-              Comprehensive support
-            </li>
+            {t.raw("benefits").map((benefit) => (
+              <li key={benefit} className="flex items-center gap-3">
+                <span className="p-2 border border-black/30 bg-neutral-100 dark:bg-neutral-800 shadow rounded-md">
+                  <FaCheck />
+                </span>
+                {benefit}
+              </li>
+            ))}
           </ul>
 
           {/* Social */}
@@ -127,7 +118,7 @@ export const Contact = () => {
               value={form.name}
               onChange={handleChange}
               required
-              placeholder="Name"
+              placeholder={t("placeholders.name")}
               className="rounded-2xl bg-neutral-300 dark:bg-neutral-900 border border-neutral-200 px-4 py-3 
                          text-sm text-neutral-900 dark:text-white placeholder:text-neutral-700 dark:placeholder:text-neutral-400 
                          focus:outline-none focus:border-neutral-400 dark:border-neutral-700"
@@ -139,7 +130,7 @@ export const Contact = () => {
               onChange={handleChange}
               required
               type="email"
-              placeholder="Email"
+              placeholder={t("placeholders.email")}
               className="rounded-2xl bg-neutral-300 dark:bg-neutral-900 border border-neutral-200 px-4 py-3 
                          text-sm text-neutral-900 dark:text-white placeholder:text-neutral-700 dark:placeholder:text-neutral-400 
                          focus:outline-none focus:border-neutral-400 dark:border-neutral-700"
@@ -151,7 +142,7 @@ export const Contact = () => {
             value={form.message}
             onChange={handleChange}
             required
-            placeholder="Message"
+            placeholder={t("placeholders.message")}
             rows={6}
             className="mt-4 w-full rounded-2xl bg-neutral-300 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-700
                        px-4 py-3 text-sm text-neutral-900 dark:text-white placeholder:text-neutral-700 dark:placeholder:text-neutral-400 
@@ -159,7 +150,7 @@ export const Contact = () => {
           />
 
               <ArrowButton
-                label={loading ? "Sending..." : "Submit"}
+                label={loading ? t("sending") : t("submit")}
                 disabled={loading}
                 type="submit"
                 variant="dark"

@@ -1,0 +1,171 @@
+{
+  "servicePage": {
+    "metadata": {
+      "title": "Services",
+      "description": "Business support services from Go Space and Ganesha Consulting."
+    },
+    "hero": {
+      "eyebrow": "Business support services",
+      "title": "Services that help your business start and grow with better structure.",
+      "description": "From company establishment to website needs, Go Space connects your business with support services from the Ganesha Consulting ecosystem.",
+      "cta": "Consult services"
+    },
+    "sections": {
+      "title": "Choose a Service",
+      "description": "From basic legal needs to digital presence for growing businesses.",
+      "learnMore": "View detail"
+    },
+    "detail": {
+      "back": "Back to all services",
+      "overview": "Overview",
+      "benefits": "What you get",
+      "process": "Process",
+      "ctaTitle": "Need help choosing a service?",
+      "ctaDescription": "Tell us your business situation, and we will help recommend the most suitable service.",
+      "cta": "Chat WhatsApp",
+      "external": "Open Ganesha Consulting page"
+    },
+    "items": [
+      {
+        "slug": "virtual-office",
+        "title": "Go Space Virtual Office",
+        "shortDescription": "A strategic business address in Mampang, South Jakarta for legality, credibility, and more efficient operations.",
+        "description": "Go Space Virtual Office helps businesses have a professional address without the cost of a large physical office, complete with meeting room support and the Ganesha Consulting legality ecosystem.",
+        "benefits": [
+          "Strategic business address for legality and branding",
+          "More efficient operational cost than a physical office",
+          "Meeting room access for professional needs",
+          "Legal service support if your business has not been established yet"
+        ],
+        "process": [
+          "Consult business address and legality needs",
+          "Choose the suitable virtual office package",
+          "Complete administrative data and documents",
+          "Business address is ready to use"
+        ]
+      },
+      {
+        "slug": "pendirian-pt",
+        "title": "PT Company Establishment",
+        "shortDescription": "Company establishment service for businesses that need a stronger and more credible legal entity.",
+        "description": "PT establishment is suitable for businesses that want to build credibility, separate personal and company responsibilities, and prepare a legal structure for partnerships, tenders, and expansion.",
+        "benefits": [
+          "Consultation on business entity needs",
+          "Support for basic documents and requirements",
+          "Legal direction based on operational needs",
+          "Business address support through Go Space if needed"
+        ],
+        "process": [
+          "Discuss business needs and shareholder structure",
+          "Prepare supporting data and documents",
+          "Process establishment and legality with Ganesha Consulting",
+          "Document handover and guidance on legal usage"
+        ]
+      },
+      {
+        "slug": "pendirian-cv",
+        "title": "CV Company Establishment",
+        "shortDescription": "CV establishment solution for businesses that want to formalize with a relatively simple process.",
+        "description": "CV is suitable for service, trade, or family businesses that need a more official business identity while staying efficient and practical for administration.",
+        "benefits": [
+          "Consultation on business form and document needs",
+          "Support for active and passive partner data",
+          "Simpler legality process for early-stage businesses",
+          "Business address support if needed"
+        ],
+        "process": [
+          "Consult business needs and business name",
+          "Collect partner data",
+          "Process deed and legal documents",
+          "Finalize documents for operational needs"
+        ]
+      },
+      {
+        "slug": "web-development",
+        "title": "Website Development",
+        "shortDescription": "Professional website development to strengthen branding, credibility, and business conversion.",
+        "description": "A website helps your business look more trustworthy, easier to find, and gives you an official channel to explain services, portfolios, and contact options to potential customers.",
+        "benefits": [
+          "Page structure based on business needs",
+          "Responsive design for desktop and mobile",
+          "Copy and layout that support credibility",
+          "CTA integration to WhatsApp or contact forms"
+        ],
+        "process": [
+          "Brief business needs and target audience",
+          "Plan page structure and main content",
+          "Design and develop the website",
+          "Review, revise, and publish"
+        ]
+      }
+    ],
+    "virtualOffice": {
+      "back": "Back to all services",
+      "eyebrow": "Go Space Virtual Office",
+      "title": "A strategic business address without the burden of a physical office.",
+      "description": "Build business credibility with a professional address in Mampang, South Jakarta. Suitable for startups, SMEs, consultants, and businesses that want to look more established from day one.",
+      "primaryCta": "Consult Virtual Office",
+      "secondaryCta": "View meeting rooms",
+      "stats": [
+        {
+          "value": "South Jakarta",
+          "label": "Strategic address for business"
+        },
+        {
+          "value": "Meeting Room",
+          "label": "Ready-to-use meeting space"
+        },
+        {
+          "value": "Legal Support",
+          "label": "Connected with Ganesha Consulting"
+        }
+      ],
+      "overviewTitle": "For businesses that need a professional address, not an expensive office.",
+      "overviewDescription": "Go Space Virtual Office is designed to help businesses stay credible, keep legality cleaner, and operate more efficiently. You can use a strategic business address while working flexibly from anywhere.",
+      "benefitsTitle": "Why choose Go Space Virtual Office?",
+      "benefits": [
+        {
+          "title": "Credible business address",
+          "description": "Use a strategic address for legality, branding, business cards, website, and business communication needs."
+        },
+        {
+          "title": "Lower operational cost",
+          "description": "Reduce physical office rent, maintenance, and routine operational costs without sacrificing professionalism."
+        },
+        {
+          "title": "Meeting room available",
+          "description": "When you need to meet clients or teams, use a comfortable meeting room that supports presentations."
+        },
+        {
+          "title": "Legality support",
+          "description": "If your business does not have a PT or CV yet, Ganesha Consulting can help with the establishment process."
+        }
+      ],
+      "featuresTitle": "Facilities and needs supported",
+      "features": [
+        "Business address for company legality",
+        "More professional business domicile",
+        "Meeting room for presentations and discussions",
+        "Business establishment consultation support",
+        "Suitable for remote teams and hybrid businesses",
+        "Access to Ganesha Consulting business service ecosystem"
+      ],
+      "idealTitle": "Suitable for",
+      "idealFor": [
+        "Founders starting a business",
+        "SMEs that want to level up",
+        "Consultants and agencies",
+        "Remote teams needing an official address"
+      ],
+      "processTitle": "Start using Virtual Office",
+      "process": [
+        "Consult your business needs",
+        "Choose package and service duration",
+        "Complete administrative data",
+        "Address is ready to use"
+      ],
+      "ctaTitle": "Ready to have a more professional business address?",
+      "ctaDescription": "Chat with the Go Space team to consult the Virtual Office package that best fits your business needs."
+    }
+  }
+}

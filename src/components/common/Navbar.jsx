@@ -6,21 +6,37 @@ import { BsCurrencyDollar, BsQuestionLg } from "react-icons/bs";
 import { HiHome, HiMoon, HiOfficeBuilding } from "react-icons/hi";
 import { MdSunny } from "react-icons/md";
 import { GoArrowUpRight } from "react-icons/go";
-import { RiContactsFill } from "react-icons/ri";
 import { VscListFlat } from "react-icons/vsc";
 import { Button } from "../ui/button";
-import Link from "next/link";
+import { useTranslations } from "next-intl";
+import { Link, usePathname } from "@/i18n/routing";
 import Image from "next/image";
-import { useTheme } from "next-themes";
+import { useTheme } from "./ThemeProvider";
+import { LocaleSwitcher } from "./LocaleSwitcher";
 
 export const Navbar = () => {
+  const nav = useTranslations("nav");
+  const common = useTranslations("common");
+  const pathname = usePathname();
   const [showDesktop, setShowDesktop] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const [openMenu, setOpenMenu] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
   const { theme, setTheme } = useTheme();
+  const isHomePage = pathname === "/";
+  const shouldShowDesktop = !isMobile && (!isHomePage || showDesktop);
+  const baseNavLinkClass =
+    "rounded-full px-3 py-2 text-neutral-800 dark:text-white transition-colors duration-500 hover:bg-main/10 hover:text-main dark:hover:bg-white/10 dark:hover:text-goYellow";
+  const activeNavLinkClass =
+    "rounded-full bg-main px-3 py-2 text-white shadow-sm dark:bg-white dark:text-neutral-900 transition-colors duration-500";
+  const baseMobileMenuClass =
+    "text-neutral-900 w-full rounded-full flex justify-between";
+  const activeMobileMenuClass =
+    "text-main bg-main/10 w-full rounded-full flex justify-between";
 
   useEffect(() => {
+    if (!isHomePage) return;
+
     const sections = ["home", "spaces", "pricing", "faq"];
 
     const observer = new IntersectionObserver(
@@ -44,73 +60,105 @@ export const Navbar = () => {
     });
 
     return () => observer.disconnect();
-  }, []);
+  }, [isHomePage]);
 
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth < 768);
     };
 
-    const handleScroll = () => {
-      if (!isMobile) {
-        setShowDesktop(window.scrollY > 120);
+    const updateDesktopVisibility = () => {
+      if (window.innerWidth >= 768) {
+        setShowDesktop(isHomePage ? window.scrollY > 120 : true);
       }
     };
 
     handleResize();
+    updateDesktopVisibility();
     window.addEventListener("resize", handleResize);
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("resize", updateDesktopVisibility);
+    window.addEventListener("scroll", updateDesktopVisibility);
 
     return () => {
       window.removeEventListener("resize", handleResize);
-      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", updateDesktopVisibility);
+      window.removeEventListener("scroll", updateDesktopVisibility);
     };
-  }, [isMobile]);
+  }, [isHomePage]);
 
-  const isActive = (id) =>
-    activeSection === id
-      ? "text-purple-600 border-b-2 border-purple-500 transition-colors duration-500"
-      : "text-neutral-800 dark:text-white transition-colors duration-500";
+  const isPageActive = (page) =>
+    pathname === `/${page}` || pathname.startsWith(`/${page}/`);
+
+  const getNavLinkClass = (item) => {
+    if (["home", "spaces", "pricing", "faq"].includes(item)) {
+      return isHomePage && activeSection === item
+        ? activeNavLinkClass
+        : baseNavLinkClass;
+    }
+
+    return isPageActive(item) ? activeNavLinkClass : baseNavLinkClass;
+  };
+
+  const getMobileMenuClass = (page) =>
+    isPageActive(page) ? activeMobileMenuClass : baseMobileMenuClass;
 
   return (
     <AnimatePresence>
       {/* ================= DESKTOP NAVBAR ================= */}
-      {showDesktop && !isMobile && (
+      {shouldShowDesktop && (
         <motion.nav
           initial={{ y: -80, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           exit={{ y: -80, opacity: 0 }}
           transition={{ duration: 0.4, ease: "easeOut" }}
           className="z-9999 hidden md:block fixed top-4 left-1/2 -translate-x-1/2
-                     w-[95%] max-w-2xl rounded-full ps-1 pe-1 py-1"
+                     w-fit max-w-[95%] rounded-full ps-1 pe-1 py-1"
         >
           <div className="flex items-center justify-center gap-2">
-            <div className="flex items-center gap-2 bg-white/70 dark:bg-neutral-700/50 backdrop-blur-sm border border-black/20 dark:border-white/20  px-4 py-2 rounded-full shadow-2xl">
+            <Link
+              href="/#home"
+              className="flex h-12 w-fit shrink-0 items-center justify-center bg-white/80 dark:bg-neutral-700/70 backdrop-blur-sm border border-black/20 dark:border-white/20 px-4 py-2 rounded-full shadow-2xl"
+              aria-label="Go Space Home"
+            >
               <Image
                 src="/assets/go-logo.png"
                 alt="Go Space"
-                width={58}
-                height={28}
-                className="h-7 w-auto dark:brightness-1000"
+                width={128}
+                height={48}
+                className="h-8 w-auto object-contain dark:brightness-0 dark:invert"
+                priority
               />
-            </div>
+            </Link>
 
-            <div className="py-1 ps-5 pe-1 rounded-full bg-white/70 dark:bg-neutral-700/50 backdrop-blur-sm border border-black/20 dark:border-white/20 shadow-2xl flex items-center gap-5">
-              <div className="flex items-center gap-9 text-[15px] font-medium text-neutral-800 dark:text-white">
-                <div className="flex items-center gap-9 text-[15px] font-medium">
-                  <Link href="/#home" className={isActive("home")}>
-                    Home
+            <div className="py-1 px-2 rounded-full bg-white/70 dark:bg-neutral-700/50 backdrop-blur-sm border border-black/20 dark:border-white/20 shadow-2xl flex items-center gap-1">
+              <div className="flex items-center text-[15px] font-medium text-neutral-800 dark:text-white">
+                <div className="space-x-1 text-[15px] font-medium">
+                  <Link href="/#home" className={getNavLinkClass("home")}>
+                    {nav("home")}
                   </Link>
-                  <Link href="/#spaces" className={isActive("spaces")}>
-                    Spaces
+                  <Link
+                    href="/about"
+                    className={getNavLinkClass("about")}
+                  >
+                    {nav("about")}
                   </Link>
-                  <Link href="/#pricing" className={isActive("pricing")}>
-                    Pricing
+                  <Link
+                    href="/service"
+                    className={getNavLinkClass("service")}
+                  >
+                    {nav("service")}
                   </Link>
-                  <Link href="/#faq" className={isActive("faq")}>
-                    Faq
+                  <Link
+                    href="/blog"
+                    className={getNavLinkClass("blog")}
+                  >
+                    {nav("blog")}
                   </Link>
                 </div>
+              </div>
+
+              <div className="shrink-0">
+                <LocaleSwitcher />
               </div>
 
               <Button
@@ -118,7 +166,7 @@ export const Navbar = () => {
                   setTheme(!theme || theme === "light" ? "dark" : "light")
                 }
                 size="icon"
-                className="rounded-full bg-main text-white dark:bg-main dark:text-white hover:text-white dark:hover:bg-neutral-600 text-xl"
+                className="shrink-0 rounded-full bg-main text-white dark:bg-main dark:text-white hover:text-white dark:hover:bg-neutral-600 text-xl"
               >
                 {theme === "dark" ? <HiMoon /> : <MdSunny />}
               </Button>
@@ -126,7 +174,7 @@ export const Navbar = () => {
 
             <Button
               asChild
-              className="bg-white/70 dark:bg-neutral-700/50 text-neutral-900 dark:text-white backdrop-blur-md rounded-full pe-3 py-5 border-black/30 border shadow-2xl hover:bg-white/70 "
+              className="shrink-0 bg-white/70 dark:bg-neutral-700/50 text-neutral-900 dark:text-white backdrop-blur-md rounded-full pe-3 py-5 border-black/30 border shadow-2xl hover:bg-white/70 "
             >
               <Link
                 href={
@@ -135,7 +183,7 @@ export const Navbar = () => {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <span>Contact</span>
+                <span>{common("contact")}</span>
                 <GoArrowUpRight />
               </Link>
             </Button>
@@ -165,7 +213,39 @@ export const Navbar = () => {
                   }
                   className="w-full flex justify-between bg-main dark:bg-neutral-900 dark:text-white z-100"
                 >
-                  Mode {theme === "dark" ? <HiMoon /> : <MdSunny />}
+                  {common("mode")} {theme === "dark" ? <HiMoon /> : <MdSunny />}
+                </Button>
+
+                <LocaleSwitcher />
+
+                <Button
+                  asChild
+                  variant="ghost"
+                  className={getMobileMenuClass("about")}
+                >
+                  <Link href="/about">
+                    {nav("about")} <GoArrowUpRight />
+                  </Link>
+                </Button>
+
+                <Button
+                  asChild
+                  variant="ghost"
+                  className={getMobileMenuClass("service")}
+                >
+                  <Link href="/service">
+                    {nav("service")} <GoArrowUpRight />
+                  </Link>
+                </Button>
+
+                <Button
+                  asChild
+                  variant="ghost"
+                  className={getMobileMenuClass("blog")}
+                >
+                  <Link href="/blog">
+                    {nav("blog")} <GoArrowUpRight />
+                  </Link>
                 </Button>
 
                 <Button
@@ -180,7 +260,7 @@ export const Navbar = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    Contact <GoArrowUpRight />
+                    {common("contact")} <GoArrowUpRight />
                   </Link>
                 </Button>
               </motion.div>
@@ -200,24 +280,24 @@ export const Navbar = () => {
           >
             <div className="flex items-center justify-between ">
               <NavIcon
-                href="#"
+                href="/#home"
                 icon={<HiHome />}
-                active={activeSection === "home"}
+                active={isHomePage && activeSection === "home"}
               />
               <NavIcon
-                href="#spaces"
+                href="/#spaces"
                 icon={<HiOfficeBuilding />}
-                active={activeSection === "spaces"}
+                active={isHomePage && activeSection === "spaces"}
               />
               <NavIcon
-                href="#pricing"
+                href="/#pricing"
                 icon={<BsCurrencyDollar />}
-                active={activeSection === "pricing"}
+                active={isHomePage && activeSection === "pricing"}
               />
               <NavIcon
-                href="#faq"
+                href="/#faq"
                 icon={<BsQuestionLg />}
-                active={activeSection === "faq"}
+                active={isHomePage && activeSection === "faq"}
               />
 
               <button

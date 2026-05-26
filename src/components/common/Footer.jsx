@@ -1,12 +1,15 @@
 // adjust responsiveness
 import Image from "next/image";
-import Link from "next/link";
+import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/routing";
 import { FaWhatsapp } from "react-icons/fa6";
 import { MdOutlineEmail } from "react-icons/md";
-import { AiOutlineWhatsApp } from "react-icons/ai";
 import { FaInstagram } from "react-icons/fa6";
 
 export const Footer = () => {
+  const t = useTranslations("footer");
+  const nav = useTranslations("nav");
+
   return (
     <footer className="bg-neutral-200 dark:bg-black">
       <section
@@ -30,37 +33,45 @@ export const Footer = () => {
           />
 
           <p className="font-semibold text-lg md:text-xl">
-            PT Ganesha Multi Kreatif
+            {t("company")}
           </p>
 
           <p className="max-w-sm text-sm text-white/80">
-            Go Space by Ganesha Consulting. Alamat bisnis strategis,
-            kredibilitas naik, biaya operasional lebih hemat.
+            {t("description")}
           </p>
         </div>
 
         {/* === PAGE LINKS === */}
         <div className="md:col-span-2">
-          <p className="font-semibold mb-6">Page</p>
+          <p className="font-semibold mb-6">{t("page")}</p>
           <div className="flex flex-col gap-3 text-sm">
             <Link href="/#" className="hover:text-white/70 transition">
-              Home
+              {nav("home")}
+            </Link>
+            <Link href="/about" className="hover:text-white/70 transition">
+              {nav("about")}
+            </Link>
+            <Link href="/service" className="hover:text-white/70 transition">
+              {nav("service")}
+            </Link>
+            <Link href="/blog" className="hover:text-white/70 transition">
+              {nav("blog")}
             </Link>
             <Link href="/#spaces" className="hover:text-white/70 transition">
-              Spaces
+              {nav("spaces")}
             </Link>
             <Link href="/#pricing" className="hover:text-white/70 transition">
-              Pricing
+              {nav("pricing")}
             </Link>
             <Link href="/#faq" className="hover:text-white/70 transition">
-              Faq
+              {nav("faq")}
             </Link>
           </div>
         </div>
 
         {/* === CONTACT LINKS === */}
         <div className="md:col-span-2">
-          <p className="font-semibold mb-6">Contact</p>
+          <p className="font-semibold mb-6">{t("contact")}</p>
           <div className="flex flex-col gap-3 text-sm">
             <Link
               href="https://api.whatsapp.com/send/?phone=628871510044&text=Halo%2C+saya+tertarik+dengan+layanan+Go+Space%21&type=phone_number&app_absent=0"
@@ -69,7 +80,7 @@ export const Footer = () => {
               <span>
                 <FaWhatsapp />
               </span>
-              <span>WhatsApp</span>
+              <span>{t("whatsapp")}</span>
             </Link>
             <Link
               href="mailto:ganeshamultikreatif@gmail.com"
@@ -78,7 +89,7 @@ export const Footer = () => {
               <span>
                 <MdOutlineEmail />
               </span>
-              <span>Email</span>
+              <span>{t("email")}</span>
             </Link>
             <Link
               href="https://www.instagram.com/gospace.official"
@@ -87,14 +98,14 @@ export const Footer = () => {
               <span>
                 <FaInstagram />
               </span>
-              <span>Instagram</span>
+              <span>{t("instagram")}</span>
             </Link>
           </div>
         </div>
 
         {/* === MAP === */}
         <div className="md:col-span-4">
-          <p className="font-semibold mb-6">Location</p>
+          <p className="font-semibold mb-6">{t("location")}</p>
 
           <div className="relative w-full aspect-16/10 rounded-2xl overflow-hidden">
             <iframe

@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
+import { useTranslations } from "next-intl";
 import { calculateOriginalPrice, formatToRupiah } from "@/lib/helpers";
 import { HeaderSection } from "./common/HeaderSection";
 import { IoMdCheckmarkCircleOutline } from "react-icons/io";
@@ -10,15 +11,13 @@ import { Badge } from "./ui/badge";
 import { bgMainDarkGradient } from "@/lib/reuseClass";
 import { ArrowButton } from "./common/ArrowButton";
 
-const TABS = [
-  { label: "Virtual Office", value: "virtual" },
-  { label: "Ruang Meeting", value: "meeting" },
-];
+const TABS = ["virtual", "meeting"];
 
 export const PriceList = ({ data }) => {
+  const t = useTranslations("pricing");
   const [activeTab, setActiveTab] = useState("virtual");
   const [expandedCards, setExpandedCards] = useState({});
-  const badge = activeTab === "virtual" ? "1 Year" : "2 Hour";
+  const badge = t(`badges.${activeTab}`);
 
   const toggleExpand = (index) => {
     setExpandedCards((prev) => ({
@@ -41,22 +40,20 @@ export const PriceList = ({ data }) => {
     <section id="pricing" className="margin">
       <div className="max-w-7xl mx-auto">
         <HeaderSection
-          title={"Price Plan"}
-          desc={
-            "Go Space adalah Virtual Office dengan harga affordable dengan lokasi strategis dan prestisius di jakarta selatan"
-          }
+          title={t("title")}
+          desc={t("description")}
         />
 
         {/* ===== TABS ===== */}
         <div className="flex justify-center mb-10">
           <div className="inline-flex rounded-full bg-neutral-200 dark:bg-neutral-800 p-1.5 border border-neutral-900/30 dark:border-white/30">
             {TABS.map((tab) => {
-              const isActive = activeTab === tab.value;
+              const isActive = activeTab === tab;
               return (
                 <button
-                  key={tab.value}
+                  key={tab}
                   onClick={() => {
-                    setActiveTab(tab.value);
+                    setActiveTab(tab);
                     setExpandedCards({});
                   }}
                   className={`
@@ -68,7 +65,7 @@ export const PriceList = ({ data }) => {
                     }
                   `}
                 >
-                  {tab.label}
+                  {t(`tabs.${tab}`)}
                 </button>
               );
             })}
@@ -188,12 +185,12 @@ export const PriceList = ({ data }) => {
                       >
                         {isExpanded ? (
                           <>
-                            See Less
+                            {t("seeLess")}
                             <HiChevronUp className="text-lg transition-transform duration-300" />
                           </>
                         ) : (
                           <>
-                            See More ({plan.features.length - 4} more features)
+                            {t("seeMore", { count: plan.features.length - 4 })}
                             <HiChevronDown className="text-lg transition-transform duration-300" />
                           </>
                         )}
@@ -202,7 +199,7 @@ export const PriceList = ({ data }) => {
 
                     <div className="py-5 px-5">
                       <ArrowButton
-                        label={"Book Now!"}
+                        label={t("bookNow")}
                         isAnchor={true}
                         path={plan.link}
                         variant="dark"
